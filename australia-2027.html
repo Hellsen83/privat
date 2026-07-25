@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Australien 2027 · Cairns → Brisbane</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
 <style>
   :root{
     --ink:#15242b; --ink-soft:#4a6270; --paper:#f7f5f0; --card:#ffffff;
@@ -114,6 +115,16 @@
   #lightbox .close{position:absolute;top:14px;right:22px;color:#fff;font-size:2rem;line-height:1;opacity:.8}
 
   .weather{background:var(--card);border:1px solid var(--line);border-radius:999px;padding:5px 14px;font-size:.85rem;color:var(--ink-soft)}
+
+  /* Map */
+  #map{height:540px;border-radius:var(--radius);border:1px solid var(--line);z-index:1}
+  .map-legend{display:flex;flex-wrap:wrap;gap:18px;margin-top:12px;font-size:.9rem;color:var(--ink-soft)}
+  .map-legend .sw{display:inline-block;width:26px;height:4px;border-radius:2px;vertical-align:middle;margin-right:6px}
+  .map-btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+  .map-btns a{display:inline-block;background:var(--sea-deep);color:#fff;text-decoration:none;border-radius:999px;padding:8px 18px;font-size:.9rem;font-weight:600}
+  .map-btns a:hover{background:var(--sea)}
+  .stop-icon{background:var(--sea);color:#fff;border-radius:999px;width:26px;height:26px;display:flex;align-items:center;justify-content:center;font:700 13px/1 "Avenir Next","Segoe UI",sans-serif;border:2px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.4)}
+  .stop-icon.b{background:var(--accent)}
 </style>
 </head>
 <body id="top">
@@ -128,6 +139,22 @@
 </div>
 
 <section class="wrap">
+  <h2>Die Route</h2>
+  <p class="lead">~2.500 km von Cairns nach Brisbane, immer die Küste entlang — Variante B macht in der Mitte die Outback-Schleife zur Carnarvon Gorge. Marker anklicken → Sprung zur Station.</p>
+  <div id="map"></div>
+  <div class="map-legend">
+    <span><span class="sw" style="background:#0e7490"></span>Route (A &amp; B gemeinsam)</span>
+    <span><span class="sw" style="background:#0e7490;opacity:.55"></span>nur Variante A (Küste)</span>
+    <span><span class="sw" style="background:#e0762e"></span>nur Variante B (Carnarvon-Schleife)</span>
+  </div>
+  <div class="map-btns">
+    <a href="https://www.google.com/maps/dir/Cairns+QLD/Port+Douglas+QLD/Cape+Tribulation+QLD/Yungaburra+QLD/Mission+Beach+QLD/Townsville+QLD/Airlie+Beach+QLD/Eungella+QLD" target="_blank" rel="noopener">🗺 Google Maps: Teil 1 · Cairns → Eungella</a>
+    <a href="https://www.google.com/maps/dir/Eungella+QLD/Agnes+Water+QLD/Rainbow+Beach+QLD/Noosa+Heads+QLD/Brisbane+QLD" target="_blank" rel="noopener">🗺 Teil 2 (A) · Eungella → Brisbane</a>
+    <a href="https://www.google.com/maps/dir/Eungella+QLD/Emerald+QLD/Carnarvon+Gorge+QLD/Bargara+QLD/Rainbow+Beach+QLD" target="_blank" rel="noopener">🗺 Teil 2 (B) · Outback-Schleife</a>
+  </div>
+</section>
+
+<section class="wrap" style="padding-top:0">
   <h2>Die Eckdaten</h2>
   <p class="lead">Wir fliegen am ersten Ferientag los und sind mit zehn Tagen Puffer vor Schulstart zurück. Gereist wird im australischen Winter — im tropischen Norden heißt das: Trockenzeit, 22–30&nbsp;°C, klarer Himmel, badewarmes Wasser. Der Süden (Sydney, Melbourne) hat dann Winter — den heben wir uns auf.</p>
   <div class="facts">
@@ -792,7 +819,42 @@
   <img src="" alt="">
   <div class="cap"></div>
 </div>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 <script>
+(function(){
+  var stops=[
+    {n:"1",name:"Cairns",ll:[-16.92,145.77],a:"#cairns"},
+    {n:"2",name:"Port Douglas",ll:[-16.484,145.465],a:"#portdouglas"},
+    {n:"3",name:"Cape Tribulation",ll:[-16.085,145.464],a:"#capetrib"},
+    {n:"4",name:"Atherton Tablelands (Yungaburra)",ll:[-17.27,145.583],a:"#atherton"},
+    {n:"5",name:"Mission Beach",ll:[-17.868,146.106],a:"#missionbeach"},
+    {n:"6",name:"Magnetic Island",ll:[-19.13,146.85],a:"#maggie"},
+    {n:"7",name:"Airlie Beach / Whitsundays",ll:[-20.268,148.718],a:"#whitsundays"},
+    {n:"8",name:"Eungella NP",ll:[-21.163,148.503],a:"#eungella"},
+    {n:"9",name:"Carnarvon Gorge (nur B)",ll:[-25.055,148.23],a:"#carnarvon",b:true},
+    {n:"·",name:"Agnes Water / 1770 (nur A)",ll:[-24.212,151.903],a:"#agneswater"},
+    {n:"10",name:"Rainbow Beach",ll:[-25.903,153.092],a:"#rainbowbeach"},
+    {n:"11",name:"K'gari (Eurong)",ll:[-25.512,153.127],a:"#kgari"},
+    {n:"12",name:"Noosa",ll:[-26.394,153.088],a:"#noosa"},
+    {n:"✈",name:"Brisbane",ll:[-27.47,153.026],a:"#brisbane"}
+  ];
+  var map=L.map('map',{scrollWheelZoom:false});
+  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:18,attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'}).addTo(map);
+  stops.forEach(function(s){
+    var ic=L.divIcon({className:'',html:'<div class="stop-icon'+(s.b?' b':'')+'">'+s.n+'</div>',iconSize:[26,26],iconAnchor:[13,13]});
+    L.marker(s.ll,{icon:ic}).addTo(map)
+      .bindPopup('<strong>'+s.name+'</strong><br><a href="'+s.a+'">→ zur Station</a>');
+  });
+  var common1=[[-16.92,145.77],[-16.484,145.465],[-16.085,145.464],[-16.484,145.465],[-17.27,145.583],[-17.868,146.106],[-19.26,146.82],[-20.268,148.718],[-21.163,148.503]];
+  var aOnly=[[-21.163,148.503],[-21.14,149.19],[-23.13,150.74],[-24.212,151.903],[-25.903,153.092]];
+  var bOnly=[[-21.163,148.503],[-21.14,149.19],[-23.52,148.16],[-25.055,148.23],[-24.62,150.5],[-24.87,152.35],[-25.903,153.092]];
+  var common2=[[-25.903,153.092],[-25.512,153.127],[-25.903,153.092],[-26.394,153.088],[-27.47,153.026]];
+  L.polyline(common1,{color:'#0e7490',weight:4}).addTo(map);
+  L.polyline(common2,{color:'#0e7490',weight:4}).addTo(map);
+  L.polyline(aOnly,{color:'#0e7490',weight:4,opacity:.55,dashArray:'8 6'}).addTo(map);
+  L.polyline(bOnly,{color:'#e0762e',weight:4,dashArray:'8 6'}).addTo(map);
+  map.fitBounds(L.latLngBounds(stops.map(function(s){return s.ll})),{padding:[30,30]});
+})();
 (function(){
   var lb=document.getElementById('lightbox'),im=lb.querySelector('img'),cap=lb.querySelector('.cap');
   document.querySelectorAll('.gallery img, .band img').forEach(function(el){
