@@ -8,12 +8,13 @@
   :root{
     --ink:#15242b; --ink-soft:#4a6270; --paper:#f7f5f0; --card:#ffffff;
     --sea:#0e7490; --sea-deep:#155e75; --sand:#e9dfc8; --accent:#e0762e;
-    --line:#e3ddd0; --ok:#2f7d4f;
-    --radius:14px;
+    --line:#e3ddd0; --radius:14px;
   }
   *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
   body{font-family:"Avenir Next","Segoe UI",system-ui,sans-serif;background:var(--paper);color:var(--ink);line-height:1.6}
   .wrap{max-width:980px;margin:0 auto;padding:0 20px}
+  a{color:var(--sea)}
 
   /* Hero */
   .hero{position:relative;height:78vh;min-height:480px;overflow:hidden;display:flex;align-items:flex-end}
@@ -30,35 +31,35 @@
   p+p{margin-top:.8em}
   .lead{font-size:1.12rem;color:var(--ink-soft)}
 
-  /* Fact chips */
   .facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px;margin-top:26px}
   .fact{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px}
   .fact .k{font-size:.78rem;text-transform:uppercase;letter-spacing:.12em;color:var(--ink-soft)}
   .fact .v{font-size:1.15rem;font-weight:600;margin-top:4px}
 
-  /* Tables */
   table{width:100%;border-collapse:collapse;background:var(--card);border-radius:var(--radius);overflow:hidden;font-size:.95rem}
   th,td{padding:11px 14px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
   th{background:var(--sea-deep);color:#fff;font-weight:600}
   tr:last-child td{border-bottom:none}
   td:first-child{white-space:nowrap;font-weight:600;color:var(--sea-deep)}
   .tbl-scroll{overflow-x:auto;border-radius:var(--radius);box-shadow:0 1px 3px rgba(0,0,0,.06)}
+  table a{color:var(--sea-deep)}
 
-  /* Photo band */
   .band{position:relative;height:46vh;min-height:320px;overflow:hidden}
   .band img{width:100%;height:100%;object-fit:cover}
   .band figcaption{position:absolute;bottom:0;left:0;right:0;padding:24px 20px 14px;background:linear-gradient(transparent,rgba(10,30,40,.7));color:#fff;font-size:.95rem}
   .band figcaption .wrap{padding:0 20px}
 
-  /* Cards / gallery */
+  /* Cards */
   .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;margin-top:24px}
-  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.05)}
+  a.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.05);text-decoration:none;color:var(--ink);transition:transform .15s ease,box-shadow .15s ease}
+  a.card:hover{transform:translateY(-3px);box-shadow:0 6px 18px rgba(0,0,0,.12)}
   .card img{width:100%;height:200px;object-fit:cover;display:block}
   .card .pad{padding:16px 18px 18px}
   .card h4{font-size:1.05rem;color:var(--sea-deep);margin-bottom:4px}
   .card p{font-size:.92rem;color:var(--ink-soft)}
+  .card .more{display:inline-block;margin-top:8px;font-size:.85rem;font-weight:600;color:var(--sea)}
 
-  /* Variant boxes */
+  /* Variants */
   .variants{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:24px 0}
   @media(max-width:760px){.variants{grid-template-columns:1fr}}
   .variant{border-radius:var(--radius);padding:24px;border:2px solid var(--line);background:var(--card)}
@@ -74,16 +75,38 @@
   .note strong{color:var(--sea-deep)}
   .cta{background:var(--sea-deep);color:#fff;border-radius:var(--radius);padding:26px 28px;margin-top:30px}
   .cta h3{color:#fff;margin-top:0}
+  .cta a{color:#9fe3f2}
 
   ul.clean{margin-left:1.2em}
   ul.clean li{margin-bottom:6px}
 
+  /* Detail sections */
+  .detail{padding:64px 0 8px;border-top:1px solid var(--line);scroll-margin-top:20px}
+  .detail .meta{display:flex;flex-wrap:wrap;gap:10px;margin:10px 0 20px}
+  .meta span{background:var(--card);border:1px solid var(--line);border-radius:999px;padding:5px 14px;font-size:.85rem;color:var(--ink-soft)}
+  .meta span strong{color:var(--sea-deep)}
+  .meta span.b-only{border-color:var(--accent);color:var(--accent);font-weight:600}
+  .meta span.a-only{border-color:var(--sea);color:var(--sea);font-weight:600}
+  .detail .cols{display:grid;grid-template-columns:1.4fr 1fr;gap:28px;margin-top:8px}
+  @media(max-width:760px){.detail .cols{grid-template-columns:1fr}}
+  .dobox{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px;font-size:.94rem;align-self:start}
+  .dobox h5{font-size:.8rem;text-transform:uppercase;letter-spacing:.12em;color:var(--ink-soft);margin-bottom:8px}
+  .dobox ul{margin-left:1.1em}
+  .dobox li{margin-bottom:5px}
+  .dobox .tip{margin-top:12px;padding-top:10px;border-top:1px dashed var(--line);color:var(--ink-soft)}
+  .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin:24px 0 8px}
+  .gallery figure{border-radius:var(--radius);overflow:hidden;position:relative}
+  .gallery img{width:100%;height:230px;object-fit:cover;display:block}
+  .gallery figcaption{position:absolute;bottom:0;left:0;right:0;padding:16px 12px 8px;background:linear-gradient(transparent,rgba(10,30,40,.65));color:#fff;font-size:.8rem}
+  .links{margin:14px 0 6px;font-size:.9rem}
+  .links a{margin-right:16px;white-space:nowrap}
+  .top{display:block;text-align:right;font-size:.85rem;margin:18px 0 0}
+
   footer{padding:40px 0 60px;border-top:1px solid var(--line);margin-top:40px;font-size:.8rem;color:var(--ink-soft)}
-  footer a{color:var(--sea)}
   .n{display:inline-block;background:var(--sea);color:#fff;border-radius:999px;width:1.6em;height:1.6em;text-align:center;line-height:1.6em;font-size:.8em;font-weight:700;margin-right:.5em}
 </style>
 </head>
-<body>
+<body id="top">
 
 <div class="hero">
   <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Whitehaven_Beach%2C_Whitsunday_Islands_National_Park.jpg/1920px-Whitehaven_Beach%2C_Whitsunday_Islands_National_Park.jpg" alt="Whitehaven Beach, Whitsunday Islands">
@@ -145,19 +168,19 @@
   <h2>Variante A · Tag für Tag</h2>
   <div class="tbl-scroll"><table>
     <tr><th>Nächte</th><th>Datum</th><th>Ort</th><th>Programm</th></tr>
-    <tr><td>3</td><td>Sa 10. – Mo 12.07.</td><td>Cairns</td><td>Ankommen &amp; Jetlag, Esplanade Lagoon, Kuranda Scenic Railway + Skyrail, Nachtmarkt</td></tr>
-    <tr><td>3</td><td>Di 13. – Do 15.07.</td><td>Port Douglas</td><td>Outer-Reef-Tour (Agincourt Reef), Mossman Gorge, Four Mile Beach</td></tr>
-    <tr><td>2</td><td>Fr 16. – Sa 17.07.</td><td>Cape Tribulation</td><td>Daintree-Fähre, Regenwald-Boardwalks, Mt.&nbsp;Sorrow Ridge Trail oder Strandtag</td></tr>
-    <tr><td>3</td><td>So 18. – Di 20.07.</td><td>Atherton Tablelands</td><td>Wasserfall-Loop (Millaa Millaa, Zillie, Ellinjaa), Curtain Fig, Baden im Lake Eacham, Platypus am Peterson Creek</td></tr>
-    <tr><td>2</td><td>Mi 21. – Do 22.07.</td><td>Mission Beach</td><td>14-km-Strand, Cassowary-Spotting, optional Dunk Island</td></tr>
-    <tr><td>3</td><td>Fr 23. – So 25.07.</td><td>Magnetic Island</td><td>Auto bleibt in Townsville. Forts Walk (wilde Koalas), Buchten-Hopping, Kajak</td></tr>
-    <tr><td>4</td><td>Mo 26. – Do 29.07.</td><td>Airlie Beach</td><td><strong>2-Tage-Segeltörn Whitsundays:</strong> Whitehaven Beach, Hill Inlet, Schnorcheln + Puffertag</td></tr>
-    <tr><td>1</td><td>Fr 30.07.</td><td>Eungella NP</td><td>Wilde Schnabeltiere am Broken River (Dämmerung + früher Morgen)</td></tr>
-    <tr><td>1</td><td>Sa 31.07.</td><td>Agnes Water / 1770</td><td>Fahrtag (~6,5 h, längste Etappe), abends Strand</td></tr>
-    <tr><td>1</td><td>So 01.08.</td><td>Rainbow Beach</td><td>4WD-Übernahme + Einweisung, Carlo Sand Blow zum Sonnenuntergang</td></tr>
-    <tr><td>2</td><td>Mo 02. – Di 03.08.</td><td>K'gari (Fraser Island)</td><td>4WD-Selbstfahrt: 75-Mile-Beach, Lake McKenzie, Lake Wabby, Maheno-Wrack, Champagne Pools</td></tr>
-    <tr><td>2</td><td>Mi 04. – Do 05.08.</td><td>Noosa</td><td>Noosa-NP-Coastal-Walk, Main Beach, optional Everglades</td></tr>
-    <tr><td>1</td><td>Fr 06.08.</td><td>Brisbane</td><td>South Bank, Streets Beach, Abschiedsabend</td></tr>
+    <tr><td>3</td><td>Sa 10. – Mo 12.07.</td><td><a href="#cairns">Cairns</a></td><td>Ankommen &amp; Jetlag, Esplanade Lagoon, Kuranda Scenic Railway + Skyrail, Nachtmarkt</td></tr>
+    <tr><td>3</td><td>Di 13. – Do 15.07.</td><td><a href="#portdouglas">Port Douglas</a></td><td>Outer-Reef-Tour (Agincourt Reef), Mossman Gorge, Four Mile Beach</td></tr>
+    <tr><td>2</td><td>Fr 16. – Sa 17.07.</td><td><a href="#capetrib">Cape Tribulation</a></td><td>Daintree-Fähre, Regenwald-Boardwalks, Mt.&nbsp;Sorrow Ridge Trail oder Strandtag</td></tr>
+    <tr><td>3</td><td>So 18. – Di 20.07.</td><td><a href="#atherton">Atherton Tablelands</a></td><td>Wasserfall-Loop, Curtain Fig, Baden im Lake Eacham, Platypus am Peterson Creek</td></tr>
+    <tr><td>2</td><td>Mi 21. – Do 22.07.</td><td><a href="#missionbeach">Mission Beach</a></td><td>14-km-Strand, Cassowary-Spotting, optional Dunk Island</td></tr>
+    <tr><td>3</td><td>Fr 23. – So 25.07.</td><td><a href="#maggie">Magnetic Island</a></td><td>Forts Walk (wilde Koalas), Buchten-Hopping, Kajak</td></tr>
+    <tr><td>4</td><td>Mo 26. – Do 29.07.</td><td><a href="#whitsundays">Airlie Beach</a></td><td><strong>2-Tage-Segeltörn Whitsundays</strong> + Puffertag</td></tr>
+    <tr><td>1</td><td>Fr 30.07.</td><td><a href="#eungella">Eungella NP</a></td><td>Wilde Schnabeltiere am Broken River</td></tr>
+    <tr><td>1</td><td>Sa 31.07.</td><td><a href="#agneswater">Agnes Water / 1770</a></td><td>Fahrtag (~6,5 h), abends Strand</td></tr>
+    <tr><td>1</td><td>So 01.08.</td><td><a href="#rainbowbeach">Rainbow Beach</a></td><td>4WD-Übernahme, Carlo Sand Blow zum Sonnenuntergang</td></tr>
+    <tr><td>2</td><td>Mo 02. – Di 03.08.</td><td><a href="#kgari">K'gari (Fraser Island)</a></td><td>4WD-Selbstfahrt: 75-Mile-Beach, Lake McKenzie, Maheno-Wrack, Champagne Pools</td></tr>
+    <tr><td>2</td><td>Mi 04. – Do 05.08.</td><td><a href="#noosa">Noosa</a></td><td>Noosa-NP-Coastal-Walk, Main Beach</td></tr>
+    <tr><td>1</td><td>Fr 06.08.</td><td><a href="#brisbane">Brisbane</a></td><td>South Bank, Streets Beach, Abschiedsabend</td></tr>
     <tr><td>—</td><td>Sa 07.08.</td><td>Heimflug</td><td>ab Brisbane, Landung DE So 08.08.</td></tr>
   </table></div>
 </section>
@@ -167,96 +190,508 @@
   <p>Bis 17.07. identisch mit A, danach gestrafft — Carnarvon Gorge kommt zwischen Eungella und die Küste:</p>
   <div class="tbl-scroll"><table>
     <tr><th>Nächte</th><th>Datum</th><th>Ort</th><th>Programm</th></tr>
-    <tr><td>3</td><td>Sa 10. – Mo 12.07.</td><td>Cairns</td><td>wie Variante A</td></tr>
-    <tr><td>3</td><td>Di 13. – Do 15.07.</td><td>Port Douglas</td><td>wie Variante A (inkl. Reef-Tour)</td></tr>
-    <tr><td>2</td><td>Fr 16. – Sa 17.07.</td><td>Cape Tribulation</td><td>wie Variante A</td></tr>
-    <tr><td>2</td><td>So 18. – Mo 19.07.</td><td>Atherton Tablelands</td><td>Wasserfall-Loop komprimiert, Lake Eacham</td></tr>
-    <tr><td>1</td><td>Di 20.07.</td><td>Mission Beach</td><td>Stopp Etty Bay (Cassowaries), Strandnachmittag</td></tr>
-    <tr><td>2</td><td>Mi 21. – Do 22.07.</td><td>Magnetic Island</td><td>Forts Walk + Buchtentag</td></tr>
-    <tr><td>3</td><td>Fr 23. – So 25.07.</td><td>Airlie Beach</td><td>2-Tage-Segeltörn Whitsundays</td></tr>
-    <tr><td>1</td><td>Mo 26.07.</td><td>Eungella NP</td><td>Schnabeltiere am Broken River</td></tr>
+    <tr><td>3</td><td>Sa 10. – Mo 12.07.</td><td><a href="#cairns">Cairns</a></td><td>wie Variante A</td></tr>
+    <tr><td>3</td><td>Di 13. – Do 15.07.</td><td><a href="#portdouglas">Port Douglas</a></td><td>wie Variante A (inkl. Reef-Tour)</td></tr>
+    <tr><td>2</td><td>Fr 16. – Sa 17.07.</td><td><a href="#capetrib">Cape Tribulation</a></td><td>wie Variante A</td></tr>
+    <tr><td>2</td><td>So 18. – Mo 19.07.</td><td><a href="#atherton">Atherton Tablelands</a></td><td>Wasserfall-Loop komprimiert, Lake Eacham</td></tr>
+    <tr><td>1</td><td>Di 20.07.</td><td><a href="#missionbeach">Mission Beach</a></td><td>Stopp Etty Bay (Cassowaries), Strandnachmittag</td></tr>
+    <tr><td>2</td><td>Mi 21. – Do 22.07.</td><td><a href="#maggie">Magnetic Island</a></td><td>Forts Walk + Buchtentag</td></tr>
+    <tr><td>3</td><td>Fr 23. – So 25.07.</td><td><a href="#whitsundays">Airlie Beach</a></td><td>2-Tage-Segeltörn Whitsundays</td></tr>
+    <tr><td>1</td><td>Mo 26.07.</td><td><a href="#eungella">Eungella NP</a></td><td>Schnabeltiere am Broken River</td></tr>
     <tr><td>1</td><td>Di 27.07.</td><td>Emerald</td><td>Fahrtag ~5 h (Zwischenstopp)</td></tr>
-    <tr><td>3</td><td>Mi 28. – Fr 30.07.</td><td>Carnarvon Gorge</td><td>Main Gorge Track (Amphitheatre, Moss Garden, Art Gallery — Felskunst), Boolimba Bluff zum Sonnenaufgang</td></tr>
+    <tr><td>3</td><td>Mi 28. – Fr 30.07.</td><td><a href="#carnarvon">Carnarvon Gorge</a></td><td>Main Gorge Track, Boolimba Bluff zum Sonnenaufgang</td></tr>
     <tr><td>1</td><td>Sa 31.07.</td><td>Bargara (Bundaberg)</td><td>Fahrtag ~7 h, zurück an der Küste</td></tr>
-    <tr><td>1</td><td>So 01.08.</td><td>Rainbow Beach</td><td>4WD-Übernahme, Carlo Sand Blow</td></tr>
-    <tr><td>2</td><td>Mo 02. – Di 03.08.</td><td>K'gari (Fraser Island)</td><td>wie Variante A</td></tr>
-    <tr><td>2</td><td>Mi 04. – Do 05.08.</td><td>Noosa</td><td>wie Variante A</td></tr>
-    <tr><td>1</td><td>Fr 06.08.</td><td>Brisbane</td><td>wie Variante A</td></tr>
+    <tr><td>1</td><td>So 01.08.</td><td><a href="#rainbowbeach">Rainbow Beach</a></td><td>4WD-Übernahme, Carlo Sand Blow</td></tr>
+    <tr><td>2</td><td>Mo 02. – Di 03.08.</td><td><a href="#kgari">K'gari (Fraser Island)</a></td><td>wie Variante A</td></tr>
+    <tr><td>2</td><td>Mi 04. – Do 05.08.</td><td><a href="#noosa">Noosa</a></td><td>wie Variante A</td></tr>
+    <tr><td>1</td><td>Fr 06.08.</td><td><a href="#brisbane">Brisbane</a></td><td>wie Variante A</td></tr>
     <tr><td>—</td><td>Sa 07.08.</td><td>Heimflug</td><td>ab Brisbane</td></tr>
   </table></div>
 </section>
 
-<section class="wrap" style="padding-top:0">
-  <h2>Die Highlights</h2>
+<section class="wrap" style="padding-top:0" id="highlights">
+  <h2>Die Stationen</h2>
+  <p class="lead">Kachel anklicken → ausführliche Beschreibung mit Bildern, Programm und Links.</p>
   <div class="cards">
-    <div class="card">
+    <a class="card" href="#cairns">
       <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Esplanade_Lagoon%2C_Cairns%2C_2025%2C_04.jpg/1920px-Esplanade_Lagoon%2C_Cairns%2C_2025%2C_04.jpg" alt="Cairns Esplanade Lagoon">
-      <div class="pad"><h4><span class="n">1</span>Cairns</h4><p>Ankommen in den Tropen: Esplanade Lagoon, Kuranda-Bahn durch den Regenwald, Nachtmarkt.</p></div>
-    </div>
-    <div class="card">
+      <div class="pad"><h4><span class="n">1</span>Cairns</h4><p>Ankommen in den Tropen: Esplanade Lagoon, Kuranda-Bahn durch den Regenwald, Nachtmarkt.</p><span class="more">Mehr dazu ↓</span></div>
+    </a>
+    <a class="card" href="#portdouglas">
       <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Mossman_Gorge_01.jpg/1920px-Mossman_Gorge_01.jpg" alt="Mossman Gorge">
-      <div class="pad"><h4><span class="n">2</span>Port Douglas &amp; Mossman Gorge</h4><p>Outer-Reef-Tour zum Agincourt Reef, glasklare Gumpen in der Mossman Gorge, Four Mile Beach.</p></div>
-    </div>
-    <div class="card">
+      <div class="pad"><h4><span class="n">2</span>Port Douglas &amp; Mossman Gorge</h4><p>Outer-Reef-Tour zum Agincourt Reef, glasklare Gumpen in der Mossman Gorge, Four Mile Beach.</p><span class="more">Mehr dazu ↓</span></div>
+    </a>
+    <a class="card" href="#capetrib">
       <img src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Cape_Tribulation_from_Cocnut_Beach.jpg" alt="Cape Tribulation">
-      <div class="pad"><h4><span class="n">3</span>Cape Tribulation</h4><p>Wo der älteste Regenwald der Welt auf das Riff trifft. Boardwalks, einsame Strände, Mt.&nbsp;Sorrow.</p></div>
-    </div>
-    <div class="card">
+      <div class="pad"><h4><span class="n">3</span>Cape Tribulation</h4><p>Wo der älteste Regenwald der Welt auf das Riff trifft. Boardwalks, einsame Strände, Mt.&nbsp;Sorrow.</p><span class="more">Mehr dazu ↓</span></div>
+    </a>
+    <a class="card" href="#atherton">
       <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/MillaaMillaaFallsOct272024_01.jpg/1920px-MillaaMillaaFallsOct272024_01.jpg" alt="Millaa Millaa Falls">
-      <div class="pad"><h4><span class="n">4</span>Atherton Tablelands</h4><p>Wasserfall-Loop (Millaa Millaa!), Baden in krokodilfreien Kraterseen, Schnabeltier-Chance.</p></div>
-    </div>
-    <div class="card">
+      <div class="pad"><h4><span class="n">4</span>Atherton Tablelands</h4><p>Wasserfall-Loop (Millaa Millaa!), Baden in krokodilfreien Kraterseen, Schnabeltier-Chance.</p><span class="more">Mehr dazu ↓</span></div>
+    </a>
+    <a class="card" href="#missionbeach">
       <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Casuarius_casuarius_-Emmagen_Creek%2C_Queensland%2C_Australia_-adult_and_chick-8.jpg/1920px-Casuarius_casuarius_-Emmagen_Creek%2C_Queensland%2C_Australia_-adult_and_chick-8.jpg" alt="Cassowary mit Küken">
-      <div class="pad"><h4><span class="n">5</span>Mission Beach</h4><p>14 km Sandstrand und die besten Chancen auf wilde Cassowaries — Urzeitvögel mit Helm.</p></div>
-    </div>
-    <div class="card">
+      <div class="pad"><h4><span class="n">5</span>Mission Beach</h4><p>14 km Sandstrand und die besten Chancen auf wilde Cassowaries — Urzeitvögel mit Helm.</p><span class="more">Mehr dazu ↓</span></div>
+    </a>
+    <a class="card" href="#maggie">
       <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Koala%2C_Fort_walk%2C_Magnetic_Island_.jpg/1920px-Koala%2C_Fort_walk%2C_Magnetic_Island_.jpg" alt="Wilder Koala auf Magnetic Island">
-      <div class="pad"><h4><span class="n">6</span>Magnetic Island</h4><p>Wilde Koalas am Forts Walk, versteckte Buchten, Insel-Feeling ohne Auto.</p></div>
-    </div>
-    <div class="card">
+      <div class="pad"><h4><span class="n">6</span>Magnetic Island</h4><p>Wilde Koalas am Forts Walk, versteckte Buchten, Insel-Feeling ohne Auto.</p><span class="more">Mehr dazu ↓</span></div>
+    </a>
+    <a class="card" href="#whitsundays">
       <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Whitehaven_Beach_-_Northern_End.jpg/1920px-Whitehaven_Beach_-_Northern_End.jpg" alt="Whitehaven Beach, nördliches Ende">
-      <div class="pad"><h4><span class="n">7</span>Whitsundays</h4><p>2-Tage-Segeltörn: Whitehaven Beach, Hill Inlet Lookout, Schnorcheln am Riff, Nacht an Bord.</p></div>
-    </div>
-    <div class="card">
+      <div class="pad"><h4><span class="n">7</span>Whitsundays</h4><p>2-Tage-Segeltörn: Whitehaven Beach, Hill Inlet Lookout, Schnorcheln am Riff, Nacht an Bord.</p><span class="more">Mehr dazu ↓</span></div>
+    </a>
+    <a class="card" href="#eungella">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Platypus_swimming.jpg/1920px-Platypus_swimming.jpg" alt="Schwimmendes Schnabeltier">
+      <div class="pad"><h4><span class="n">8</span>Eungella NP</h4><p>Einer der verlässlichsten Orte Australiens, um wilde Schnabeltiere zu sehen.</p><span class="more">Mehr dazu ↓</span></div>
+    </a>
+    <a class="card" href="#carnarvon">
       <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/CarnarvonGorge.jpg" alt="Carnarvon Gorge">
-      <div class="pad"><h4><span class="n">8</span>Carnarvon Gorge <em style="color:var(--accent);font-style:normal">(nur B)</em></h4><p>Sandstein-Schluchten, Moss Garden, 3.500 Jahre alte Aboriginal-Felskunst. Outback pur.</p></div>
-    </div>
-    <div class="card">
+      <div class="pad"><h4><span class="n">9</span>Carnarvon Gorge <em style="color:var(--accent);font-style:normal">(nur B)</em></h4><p>Sandstein-Schluchten, Moss Garden, 3.500 Jahre alte Aboriginal-Felskunst. Outback pur.</p><span class="more">Mehr dazu ↓</span></div>
+    </a>
+    <a class="card" href="#rainbowbeach">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Carlo_Sand_Blow_Panorama_%2846919159382%29.jpg/1920px-Carlo_Sand_Blow_Panorama_%2846919159382%29.jpg" alt="Carlo Sand Blow">
+      <div class="pad"><h4><span class="n">10</span>Rainbow Beach</h4><p>Sprungbrett nach K'gari: 4WD-Übernahme und Sonnenuntergang auf dem Carlo Sand Blow.</p><span class="more">Mehr dazu ↓</span></div>
+    </a>
+    <a class="card" href="#kgari">
       <img src="https://upload.wikimedia.org/wikipedia/commons/2/25/Lake_McKenzie%2C_Fraser_Island%2C_by_Ayeisha_Sheldon.jpg" alt="Lake McKenzie, K'gari">
-      <div class="pad"><h4><span class="n">9</span>K'gari — Lake McKenzie</h4><p>Weißer Silikatsand, glasklares Süßwasser — mitten auf der größten Sandinsel der Welt.</p></div>
-    </div>
-    <div class="card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Airplane_taking_off_from_75_Mile_Beach%2C_Fraser_Island%2C_2001.jpg/1920px-Airplane_taking_off_from_75_Mile_Beach%2C_Fraser_Island%2C_2001.jpg" alt="75 Mile Beach">
-      <div class="pad"><h4><span class="n">10</span>75-Mile-Beach</h4><p>Wir fahren selbst 4WD: Strand-Highway, Maheno-Schiffswrack, Champagne Pools. Zwei Nächte im Eurong Beach Resort.</p></div>
-    </div>
-    <div class="card">
+      <div class="pad"><h4><span class="n">11</span>K'gari (Fraser Island)</h4><p>Größte Sandinsel der Welt — wir fahren selbst 4WD über den Strand-Highway.</p><span class="more">Mehr dazu ↓</span></div>
+    </a>
+    <a class="card" href="#noosa">
       <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Noosa_Beach%2C_Noosa_Heads%2C_Queensland%2C_2022.jpg/1920px-Noosa_Beach%2C_Noosa_Heads%2C_Queensland%2C_2022.jpg" alt="Noosa Main Beach">
-      <div class="pad"><h4><span class="n">11</span>Noosa</h4><p>Coastal Walk im Nationalpark (Delfine, im Winter Wale), Surfstadt-Flair, gutes Essen.</p></div>
-    </div>
-    <div class="card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Brisbane_River_and_skyline_of_Brisbane_Australia.jpg/1920px-Brisbane_River_and_skyline_of_Brisbane_Australia.jpg" alt="Brisbane Skyline">
-      <div class="pad"><h4><span class="n">12</span>Brisbane</h4><p>Finale: South Bank, Streets Beach, ein letzter Abend — dann Heimflug.</p></div>
-    </div>
+      <div class="pad"><h4><span class="n">12</span>Noosa &amp; Brisbane</h4><p>Coastal Walk, Surfstadt-Flair, gutes Essen — und das große Finale in Brisbane.</p><span class="more">Mehr dazu ↓</span></div>
+    </a>
   </div>
 </section>
 
-<figure class="band">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/2/25/Lake_McKenzie%2C_Fraser_Island%2C_by_Ayeisha_Sheldon.jpg" alt="Lake McKenzie">
-  <figcaption><div class="wrap">Lake McKenzie, K'gari — Woche 4, mit dem eigenen 4WD</div></figcaption>
-</figure>
+<!-- ===================== DETAILS ===================== -->
+
+<section class="detail wrap" id="cairns">
+  <h2><span class="n">1</span>Cairns — Ankommen in den Tropen</h2>
+  <div class="meta">
+    <span><strong>Nächte:</strong> 3 (A &amp; B) · Sa 10. – Mo 12.07.</span>
+    <span><strong>Lage:</strong> Far North Queensland, direkt am Korallenmeer</span>
+    <span><strong>Anreise:</strong> Landung Sa früh, SUV-Übernahme am Flughafen</span>
+  </div>
+  <div class="cols">
+    <div>
+      <p>Cairns ist das Tor zum tropischen Norden: eine entspannte, überschaubare Stadt zwischen Regenwald-Bergen und Meer. Perfekt für die ersten Tage, weil hier nichts Hektisches passieren muss — der Jetlag (8 Stunden) will ohnehin zwei Tage Ruhe. Die Stadt hat keinen Badestrand, dafür die berühmte <strong>Esplanade Lagoon</strong>: ein riesiges, kostenloses Freiluft-Schwimmbecken direkt an der Uferpromenade, mit Blick aufs Meer und Grillplätzen drumherum.</p>
+      <p>Am dritten Tag steht der Klassiker an: mit der historischen <strong>Kuranda Scenic Railway</strong> durch Schluchten und an Wasserfällen vorbei ins Regenwald-Dorf Kuranda hinauf — und mit der <strong>Skyrail-Seilbahn</strong> über den Baumkronen zurück. In Kuranda: Märkte, Barron Falls, kurze Regenwald-Walks. Abends in Cairns: der Nachtmarkt und die Restaurantmeile an der Esplanade.</p>
+    </div>
+    <div class="dobox">
+      <h5>Was wir machen</h5>
+      <ul>
+        <li>Tag 1: ankommen, Lagoon, früh schlafen</li>
+        <li>Tag 2: Esplanade, Botanic Gardens, Nachtmarkt</li>
+        <li>Tag 3: Kuranda-Bahn hoch, Skyrail zurück</li>
+      </ul>
+      <div class="tip"><strong>Tipp:</strong> Kuranda-Kombiticket (Bahn + Skyrail) vorab buchen; Fensterplätze rechts sitzen bergwärts an der Schlucht.</div>
+    </div>
+  </div>
+  <div class="gallery">
+    <figure><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Esplanade_Lagoon%2C_Cairns%2C_2025%2C_04.jpg/1920px-Esplanade_Lagoon%2C_Cairns%2C_2025%2C_04.jpg" alt="Esplanade Lagoon"><figcaption>Esplanade Lagoon — Baden mitten in der Stadt</figcaption></figure>
+    <figure><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Kuranda_Scenic_Railway%2C_2022.jpg/1920px-Kuranda_Scenic_Railway%2C_2022.jpg" alt="Kuranda Scenic Railway"><figcaption>Kuranda Scenic Railway</figcaption></figure>
+    <figure><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Esplanade_Lagoon%2C_Cairns%2C_2025%2C_12.jpg/1920px-Esplanade_Lagoon%2C_Cairns%2C_2025%2C_12.jpg" alt="Cairns Esplanade"><figcaption>Die Esplanade am Abend</figcaption></figure>
+  </div>
+  <div class="links">🔗 <a href="https://www.ksr.com.au/" target="_blank" rel="noopener">Kuranda Scenic Railway</a> <a href="https://www.skyrail.com.au/" target="_blank" rel="noopener">Skyrail Rainforest Cableway</a> <a href="https://maps.google.com/?q=Cairns+Esplanade+Lagoon" target="_blank" rel="noopener">📍 Karte</a></div>
+  <a class="top" href="#highlights">↑ zurück zur Übersicht</a>
+</section>
+
+<section class="detail wrap" id="portdouglas">
+  <h2><span class="n">2</span>Port Douglas &amp; Mossman Gorge — das beste Riff</h2>
+  <div class="meta">
+    <span><strong>Nächte:</strong> 3 (A &amp; B) · Di 13. – Do 15.07.</span>
+    <span><strong>Fahrt:</strong> ~1 h ab Cairns, spektakuläre Küstenstraße</span>
+  </div>
+  <div class="cols">
+    <div>
+      <p>Die Fahrt von Cairns nach Port Douglas gilt als eine der schönsten Küstenstraßen Australiens — links Regenwald-Hänge, rechts das Meer. Port Douglas selbst ist ein ehemaliges Fischerdorf mit Palmen-Hauptstraße, Sonntagsmarkt und dem vier Kilometer langen <strong>Four Mile Beach</strong> (im Juli bedenkenlos badbar, Stinger-Saison ist vorbei).</p>
+      <p>Der Hauptgrund, hier zu übernachten: Port Douglas liegt näher am <strong>Outer Reef</strong> als Cairns. Die Tagestour zum <strong>Agincourt Reef</strong> (z.&nbsp;B. mit Quicksilver oder einem kleineren Segelkatamaran) bringt uns an den Außenrand des Great Barrier Reef, wo das Wasser am klarsten und die Korallen am gesündesten sind — Schnorcheln direkt vom Ponton oder Boot, optional Intro-Tauchgang.</p>
+      <p>Am dritten Tag: die <strong>Mossman Gorge</strong>, 20 Minuten entfernt — glasklare, granitgerahmte Gumpen am Rand des Daintree-Regenwalds. Baden im kalten Bergwasser, kurzer Rainforest Circuit (2,4 km), optional eine von Kuku-Yalanji-Guides geführte „Dreamtime Walk"-Tour.</p>
+    </div>
+    <div class="dobox">
+      <h5>Was wir machen</h5>
+      <ul>
+        <li>Tag 1: Anfahrt, Four Mile Beach, Sunset am Flagstaff Hill</li>
+        <li>Tag 2: <strong>Outer-Reef-Tour</strong> (ganztags)</li>
+        <li>Tag 3: Mossman Gorge + Pool/Strand</li>
+      </ul>
+      <div class="tip"><strong>Tipp:</strong> Reef-Tour für Tag 2 buchen und Tag 3 als Schlechtwetter-Backup freihalten. Seekrank-Tabletten mitnehmen — die Ausfahrt dauert ~90 min.</div>
+    </div>
+  </div>
+  <div class="gallery">
+    <figure><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Four_Mile_Beach%2C_Port_Douglas%2C_Queensland_2020.jpg/1920px-Four_Mile_Beach%2C_Port_Douglas%2C_Queensland_2020.jpg" alt="Four Mile Beach"><figcaption>Four Mile Beach</figcaption></figure>
+    <figure><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Great_Barrier_Reef_Queensland_Ank_Kumar.jpg/1920px-Great_Barrier_Reef_Queensland_Ank_Kumar.jpg" alt="Great Barrier Reef"><figcaption>Great Barrier Reef von oben</figcaption></figure>
+    <figure><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Mossman_Gorge_02.jpg/1920px-Mossman_Gorge_02.jpg" alt="Mossman Gorge"><figcaption>Mossman Gorge — Baden im Bergwasser</figcaption></figure>
+  </div>
+  <div class="links">🔗 <a href="https://quicksilver-cruises.com/" target="_blank" rel="noopener">Quicksilver (Agincourt Reef)</a> <a href="https://www.mossmangorge.com.au/" target="_blank" rel="noopener">Mossman Gorge Centre</a> <a href="https://maps.google.com/?q=Port+Douglas+QLD" target="_blank" rel="noopener">📍 Karte</a></div>
+  <a class="top" href="#highlights">↑ zurück zur Übersicht</a>
+</section>
+
+<section class="detail wrap" id="capetrib">
+  <h2><span class="n">3</span>Cape Tribulation — Regenwald trifft Riff</h2>
+  <div class="meta">
+    <span><strong>Nächte:</strong> 2 (A &amp; B) · Fr 16. – Sa 17.07.</span>
+    <span><strong>Fahrt:</strong> ~1,5 h inkl. Daintree-Kabelfähre</span>
+  </div>
+  <div class="cols">
+    <div>
+      <p>Hinter der Daintree-River-Fähre wird es still: kein Stromnetz, kaum Handyempfang, eine schmale Straße durch den <strong>ältesten Regenwald der Welt</strong> (~180 Mio. Jahre, älter als der Amazonas). Am Cape Tribulation wachsen Farne und Lianen bis an den Strand — der einzige Ort der Erde, an dem zwei UNESCO-Welterben direkt aneinanderstoßen: Daintree-Regenwald und Great Barrier Reef.</p>
+      <p>Das Programm ist bewusst einfach: die <strong>Boardwalks Dubuji und Marrdja</strong> (Mangroven, Fächerpalmen, mit Glück ein Cassowary), der Aussichtspunkt am Cape, leere Strände. Wer Kondition mitbringt, steigt auf dem <strong>Mt. Sorrow Ridge Trail</strong> auf (7 km, 680 Hm, 5–6 h) — Belohnung ist der Blick über Regenwald, Kap und Riff. Alternativ: Eisbecher an der legendären Daintree Ice Cream Company und ein Nachmittag in der Hängematte.</p>
+      <p><strong>Wichtig:</strong> Hier ist Krokodil-Land — gebadet wird nicht im Meer und nicht in Flüssen, sondern erst wieder in den Tablelands. Vor der Fähre volltanken.</p>
+    </div>
+    <div class="dobox">
+      <h5>Was wir machen</h5>
+      <ul>
+        <li>Tag 1: Fähre, Alexandra Lookout, Boardwalks, Cape-Strand</li>
+        <li>Tag 2: Mt. Sorrow <em>oder</em> Faulenzen + Eisfarm</li>
+      </ul>
+      <div class="tip"><strong>Tipp:</strong> Unterkunft früh buchen — hier oben gibt es nur eine Handvoll Lodges. Bargeld mitnehmen, Karten funktionieren nicht überall.</div>
+    </div>
+  </div>
+  <div class="gallery">
+    <figure><img src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Cape_Tribulation_from_Cocnut_Beach.jpg" alt="Cape Tribulation"><figcaption>Cape Tribulation</figcaption></figure>
+    <figure><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Daintree_Rainforest_2.jpg/1920px-Daintree_Rainforest_2.jpg" alt="Daintree Regenwald"><figcaption>Daintree — ältester Regenwald der Welt</figcaption></figure>
+    <figure><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Pilgrim_Sands_Cape_Tribulation_Daintree_National_Park_Queensland_1986_IMG_0051.jpg/1920px-Pilgrim_Sands_Cape_Tribulation_Daintree_National_Park_Queensland_1986_IMG_0051.jpg" alt="Strand am Cape Tribulation"><figcaption>Regenwald bis an den Strand</figcaption></figure>
+  </div>
+  <div class="links">🔗 <a href="https://parks.qld.gov.au/parks/daintree" target="_blank" rel="noopener">Daintree National Park (QPWS)</a> <a href="https://maps.google.com/?q=Cape+Tribulation+QLD" target="_blank" rel="noopener">📍 Karte</a></div>
+  <a class="top" href="#highlights">↑ zurück zur Übersicht</a>
+</section>
+
+<section class="detail wrap" id="atherton">
+  <h2><span class="n">4</span>Atherton Tablelands — Wasserfälle &amp; Kraterseen</h2>
+  <div class="meta">
+    <span><strong>Nächte:</strong> 3 (A) / 2 (B) · ab So 18.07.</span>
+    <span><strong>Fahrt:</strong> ~2,5 h, über die Rex Range hinauf aufs Hochland</span>
+    <span><strong>Basis:</strong> Yungaburra</span>
+  </div>
+  <div class="cols">
+    <div>
+      <p>Die Tablelands sind das grüne Hochland hinter Cairns: 700–900 m hoch, kühler, hügelig, voller Wasserfälle, Kraterseen und Kühe — Queensland im Landhaus-Modus. Unsere Basis <strong>Yungaburra</strong> ist ein denkmalgeschütztes Dörfchen mit Pubs und Cafés, und am <strong>Peterson Creek</strong> mitten im Ort leben wilde Schnabeltiere (beste Chancen in der Dämmerung von der Plattform).</p>
+      <p>Highlight Nummer 1 ist der <strong>Waterfall Circuit</strong>: Millaa Millaa Falls (der ikonische Bilderbuch-Wasserfall — hier kann man schwimmen!), Zillie Falls und Ellinjaa Falls, alle wenige Minuten voneinander entfernt. Highlight Nummer 2 sind die <strong>Crater Lakes</strong>: Lake Eacham und Lake Barrine, zwei kreisrunde Vulkanseen mit glasklarem, krokodilfreiem Süßwasser — die besten Badeseen der Region. Dazu der <strong>Curtain Fig Tree</strong>, eine 500 Jahre alte Würgefeige mit 15-m-Wurzelvorhang.</p>
+    </div>
+    <div class="dobox">
+      <h5>Was wir machen</h5>
+      <ul>
+        <li>Wasserfall-Loop + Schwimmen unter den Millaa Millaa Falls</li>
+        <li>Badetag Lake Eacham, Teatime am Lake Barrine</li>
+        <li>Curtain Fig, Platypus-Watching am Peterson Creek</li>
+        <li>(nur A, Tag 3): Gallo Dairyland Käse &amp; Schoko, Hasties Swamp Vogelbeobachtung</li>
+      </ul>
+      <div class="tip"><strong>Tipp:</strong> Morgens ist es hier oben frisch (~10 °C) — Pulli bereithalten. Millaa Millaa früh anfahren, ab 10 Uhr kommen die Busse.</div>
+    </div>
+  </div>
+  <div class="gallery">
+    <figure><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/MillaaMillaaFallsOct272024_01.jpg/1920px-MillaaMillaaFallsOct272024_01.jpg" alt="Millaa Millaa Falls"><figcaption>Millaa Millaa Falls</figcaption></figure>
+    <figure><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Lake_Eacham_North_Queensland.jpg/1920px-Lake_Eacham_North_Queensland.jpg" alt="Lake Eacham"><figcaption>Lake Eacham — krokodilfreier Kratersee</figcaption></figure>
+    <figure><img src="https://upload.wikimedia.org/wikipedia/commons/d/da/Curtain_Fig_Tree.jpg" alt="Curtain Fig Tree"><figcaption>Curtain Fig Tree bei Yungaburra</figcaption></figure>
+  </div>
+  <div class="links">🔗 <a href="https://www.athertontablelands.com.au/" target="_blank" rel="noopener">Atherton Tablelands Tourism</a> <a href="https://maps.google.com/?q=Yungaburra+QLD" target="_blank" rel="noopener">📍 Karte</a></div>
+  <a class="top" href="#highlights">↑ zurück zur Übersicht</a>
+</section>
+
+<section class="detail wrap" id="missionbeach">
+  <h2><span class="n">5</span>Mission Beach — Strand &amp; Cassowaries</h2>
+  <div class="meta">
+    <span><strong>Nächte:</strong> 2 (A) / 1 (B) · ab Mi 21.07. (A) bzw. Di 20.07. (B)</span>
+    <span><strong>Fahrt:</strong> ~2,5 h ab Yungaburra, durch Regenwald bergab</span>
+  </div>
+  <div class="cols">
+    <div>
+      <p>Mission Beach ist eigentlich eine Kette aus vier verschlafenen Dörfern an einem <strong>14 km langen, palmengesäumten Sandstrand</strong> — mit Blick auf Dunk Island. Hier lebt die dichteste Population wilder <strong>Cassowaries</strong> Australiens: bis zu 1,80 m große, blau-schillernde Urzeitvögel, die gern einfach über die Straße oder den Strand spazieren. Man begegnet ihnen mit Respekt (nicht füttern, Abstand halten) — und vergisst es nie.</p>
+      <p>Ansonsten ist das hier der Ort zum Runterschalten zwischen Tablelands und Townsville: Strandspaziergänge, Baden (Stinger-Netz-Bereiche im Winter irrelevant), Kajak oder das Wassertaxi nach <strong>Dunk Island</strong> für Schnorcheln und den Mt. Kootaloo Walk. In Variante B machen wir stattdessen auf der Fahrt den Fotostopp an der <strong>Etty Bay</strong> — der Bucht mit der höchsten Cassowary-Garantie im Land.</p>
+    </div>
+    <div class="dobox">
+      <h5>Was wir machen</h5>
+      <ul>
+        <li>Strandtag + Cassowary-Spotting (früh morgens am besten)</li>
+        <li>Optional: Wassertaxi nach Dunk Island</li>
+        <li>(B): nur Zwischenstopp Etty Bay + Strandnachmittag</li>
+      </ul>
+      <div class="tip"><strong>Tipp:</strong> Zwischenstopp auf der Fahrt: die Paronella-Park-Ruinen oder die Babinda Boulders (Fotostopp, nicht baden).</div>
+    </div>
+  </div>
+  <div class="gallery">
+    <figure><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Beach_at_Mission_Beach%2C_Queensland%2C_2025%2C_01.jpg/1920px-Beach_at_Mission_Beach%2C_Queensland%2C_2025%2C_01.jpg" alt="Mission Beach"><figcaption>14 km Strand mit Blick auf Dunk Island</figcaption></figure>
+    <figure><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Casuarius_casuarius_-Emmagen_Creek%2C_Queensland%2C_Australia_-adult_and_chick-8.jpg/1920px-Casuarius_casuarius_-Emmagen_Creek%2C_Queensland%2C_Australia_-adult_and_chick-8.jpg" alt="Cassowary mit Küken"><figcaption>Cassowary mit Küken</figcaption></figure>
+    <figure><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Beach_at_Mission_Beach%2C_Queensland%2C_2025%2C_02.jpg/1920px-Beach_at_Mission_Beach%2C_Queensland%2C_2025%2C_02.jpg" alt="Mission Beach Strand"><figcaption>Mission Beach</figcaption></figure>
+  </div>
+  <div class="links">🔗 <a href="https://maps.google.com/?q=Mission+Beach+QLD" target="_blank" rel="noopener">📍 Karte</a> <a href="https://maps.google.com/?q=Etty+Bay+QLD" target="_blank" rel="noopener">📍 Etty Bay</a></div>
+  <a class="top" href="#highlights">↑ zurück zur Übersicht</a>
+</section>
+
+<section class="detail wrap" id="maggie">
+  <h2><span class="n">6</span>Magnetic Island — wilde Koalas</h2>
+  <div class="meta">
+    <span><strong>Nächte:</strong> 3 (A) / 2 (B) · ab Fr 23.07. (A) bzw. Mi 21.07. (B)</span>
+    <span><strong>Anreise:</strong> ~2,5 h nach Townsville, Auto parken, 20-min-Passagierfähre</span>
+  </div>
+  <div class="cols">
+    <div>
+      <p>„Maggie" ist eine trockene, granitene Insel vor Townsville — 23 Buchten, Hoop-Pines auf rotem Fels, türkises Wasser und die größte wilde Koala-Population im Norden. Das Auto bleibt auf dem Festland; auf der Insel bewegt man sich mit dem Bus, zu Fuß oder stilecht mit einem gemieteten Mini-Cabrio („Barbie Car").</p>
+      <p>Pflichtprogramm ist der <strong>Forts Walk</strong> (4 km): ein Weg zu WWII-Festungsruinen mit 360°-Blick — und der verlässlichste Ort Australiens, um <strong>wilde Koalas</strong> in den Eukalypten zu entdecken. Danach: Buchten-Hopping. <strong>Horseshoe Bay</strong> (groß, mit Cafés), <strong>Radical Bay</strong> und <strong>Balding Bay</strong> (nur zu Fuß erreichbar, halb-geheim) — im Juli alle bedenkenlos badbar. Abends sitzen Rock Wallabies an der Geoffrey Bay auf den Steinen.</p>
+    </div>
+    <div class="dobox">
+      <h5>Was wir machen</h5>
+      <ul>
+        <li>Forts Walk früh morgens (Koalas + kühl)</li>
+        <li>Buchten-Hopping: Horseshoe → Radical → Balding Bay</li>
+        <li>Kajak-Tour oder Schnorcheln am Geoffrey-Bay-Wrack</li>
+        <li>(A, Tag 3): Faulenzen + West Point Sunset</li>
+      </ul>
+      <div class="tip"><strong>Tipp:</strong> Fähre (SeaLink) einfach spontan; Mini-Cabrio/„Tropical Topless Car" vorab reservieren — die sind schnell weg.</div>
+    </div>
+  </div>
+  <div class="gallery">
+    <figure><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Koala%2C_Fort_walk%2C_Magnetic_Island_.jpg/1920px-Koala%2C_Fort_walk%2C_Magnetic_Island_.jpg" alt="Koala am Forts Walk"><figcaption>Wilder Koala am Forts Walk</figcaption></figure>
+    <figure><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Horseshoe_Bay_Beach%2C_Magnetic_Island.jpg/1920px-Horseshoe_Bay_Beach%2C_Magnetic_Island.jpg" alt="Horseshoe Bay"><figcaption>Horseshoe Bay</figcaption></figure>
+    <figure><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Koala%2C_Magnetic_Island_National_Park_%2815960056387%29.jpg/1920px-Koala%2C_Magnetic_Island_National_Park_%2815960056387%29.jpg" alt="Koala Magnetic Island"><figcaption>Magnetic Island National Park</figcaption></figure>
+  </div>
+  <div class="links">🔗 <a href="https://www.sealink.com.au/magnetic-island/" target="_blank" rel="noopener">SeaLink-Fähre Townsville</a> <a href="https://maps.google.com/?q=Forts+Walk+Magnetic+Island" target="_blank" rel="noopener">📍 Karte</a></div>
+  <a class="top" href="#highlights">↑ zurück zur Übersicht</a>
+</section>
+
+<section class="detail wrap" id="whitsundays">
+  <h2><span class="n">7</span>Airlie Beach &amp; Whitsundays — der Segeltörn</h2>
+  <div class="meta">
+    <span><strong>Nächte:</strong> 4 (A) / 3 (B) · ab Mo 26.07. (A) bzw. Fr 23.07. (B)</span>
+    <span><strong>Fahrt:</strong> ~3,5 h ab Townsville</span>
+  </div>
+  <div class="cols">
+    <div>
+      <p>Die Whitsundays sind 74 Inseln in einem türkisen Binnenmeer — und der Grund, warum auf jeder Australien-Bucketlist ein Segelboot auftaucht. Von Airlie Beach aus gehen wir auf einen <strong>2-Tage/1-Nacht-Segeltörn</strong>: tagsüber Segeln zwischen den Inseln, Schnorcheln an Riffen mit Schildkröten, abends Anker in einer Bucht, Nacht an Bord unterm Sternenhimmel.</p>
+      <p>Die zwei ikonischen Stopps: <strong>Whitehaven Beach</strong> — sieben Kilometer aus 98,9 % reinem Silikatsand, der quietscht beim Laufen und nie heiß wird — und der <strong>Hill Inlet Lookout</strong>, wo Sand und Gezeiten bei jedem Wasserstand ein neues Türkis-Muster malen. Airlie Beach selbst ist ein quirliger Backpacker-/Marina-Ort mit kostenloser Lagune am Meer; unser Puffertag dort ist bewusst leer — Pool, Lagune, Cafés, oder optional ein Scenic Flight über das Heart Reef.</p>
+    </div>
+    <div class="dobox">
+      <h5>Was wir machen</h5>
+      <ul>
+        <li><strong>2-Tage-Segeltörn:</strong> Whitehaven, Hill Inlet, 2–3 Schnorchel-Spots, Nacht an Bord</li>
+        <li>Puffertag: Airlie Lagoon, Marina, Essen gehen</li>
+        <li>Optional: Scenic Flight (Heart Reef) ~200 € p.P.</li>
+      </ul>
+      <div class="tip"><strong>Tipp:</strong> Törn <em>Monate</em> vorher buchen (australische Ferien!). Boote mit max. ~20 Gästen wählen — z. B. ein klassischer Maxi-Racer. Warme Jacke für abends an Deck.</div>
+    </div>
+  </div>
+  <div class="gallery">
+    <figure><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Whitsunday_Craig_and_Hill_Inlet.jpg/1920px-Whitsunday_Craig_and_Hill_Inlet.jpg" alt="Hill Inlet"><figcaption>Hill Inlet — das Türkis-Muster</figcaption></figure>
+    <figure><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Whitehaven_Beach_-_Northern_End.jpg/1920px-Whitehaven_Beach_-_Northern_End.jpg" alt="Whitehaven Beach"><figcaption>Whitehaven Beach</figcaption></figure>
+    <figure><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/The_heart_reef%2C_part_of_the_Great_Barrier_Reef_near_Airlie_Beach%2C_Whitsunday_Islands%2C_Queensland.jpg/1920px-The_heart_reef%2C_part_of_the_Great_Barrier_Reef_near_Airlie_Beach%2C_Whitsunday_Islands%2C_Queensland.jpg" alt="Heart Reef"><figcaption>Heart Reef (Scenic Flight)</figcaption></figure>
+  </div>
+  <div class="links">🔗 <a href="https://www.tourismwhitsundays.com.au/" target="_blank" rel="noopener">Tourism Whitsundays</a> <a href="https://maps.google.com/?q=Airlie+Beach+QLD" target="_blank" rel="noopener">📍 Karte</a></div>
+  <a class="top" href="#highlights">↑ zurück zur Übersicht</a>
+</section>
+
+<section class="detail wrap" id="eungella">
+  <h2><span class="n">8</span>Eungella NP — Schnabeltiere in freier Wildbahn</h2>
+  <div class="meta">
+    <span><strong>Nächte:</strong> 1 (A &amp; B) · Fr 30.07. (A) bzw. Mo 26.07. (B)</span>
+    <span><strong>Fahrt:</strong> ~3 h ab Airlie, zuletzt steile Serpentinen ins Nebelwald-Hochland</span>
+  </div>
+  <div class="cols">
+    <div>
+      <p>Eungella („Land der Wolken") ist ein Nebelwald-Nationalpark 750 m über dem Pioneer Valley — und der <strong>verlässlichste Ort Australiens, um wilde Schnabeltiere zu sehen</strong>. An den Plattformen am <strong>Broken River</strong> tauchen sie in der Abend- und Morgendämmerung auf: kleine Luftblasen-Ketten, dann der glänzende Rücken, der Paddelschwanz. Man braucht nur Geduld und Stille.</p>
+      <p>Wir übernachten direkt im Park (Broken River Mountain Resort), sehen die Tiere abends <em>und</em> früh morgens, laufen ein Stück auf den Regenwald-Trails am Fluss und rollen dann weiter. Ein kurzer, aber besonderer Stopp — Schnabeltiere in freier Wildbahn sieht man sonst fast nirgends.</p>
+    </div>
+    <div class="dobox">
+      <h5>Was wir machen</h5>
+      <ul>
+        <li>Abends + früh morgens: Platypus-Watching Broken River</li>
+        <li>Sky Window Lookout übers Pioneer Valley</li>
+        <li>Kurzer Rainforest Walk am Fluss</li>
+      </ul>
+      <div class="tip"><strong>Tipp:</strong> Fernglas mitnehmen; beste Zeit 30 min vor Sonnenuntergang. Nachts wird's kalt (~5 °C) — einzige Nacht mit „Winter".</div>
+    </div>
+  </div>
+  <div class="gallery">
+    <figure><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Platypus_swimming.jpg/1920px-Platypus_swimming.jpg" alt="Schwimmendes Schnabeltier"><figcaption>Schnabeltier beim Auftauchen</figcaption></figure>
+    <figure><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Australia%2C_Queensland%2C_Eungella_National_Park%2C_Pioneer_Valley.jpg/1920px-Australia%2C_Queensland%2C_Eungella_National_Park%2C_Pioneer_Valley.jpg" alt="Pioneer Valley"><figcaption>Blick übers Pioneer Valley</figcaption></figure>
+  </div>
+  <div class="links">🔗 <a href="https://parks.qld.gov.au/parks/eungella" target="_blank" rel="noopener">Eungella National Park (QPWS)</a> <a href="https://maps.google.com/?q=Broken+River+Eungella" target="_blank" rel="noopener">📍 Karte</a></div>
+  <a class="top" href="#highlights">↑ zurück zur Übersicht</a>
+</section>
+
+<section class="detail wrap" id="carnarvon">
+  <h2><span class="n">9</span>Carnarvon Gorge — die Outback-Schlucht <span style="color:var(--accent);font-size:.6em;vertical-align:middle">NUR VARIANTE B</span></h2>
+  <div class="meta">
+    <span class="b-only">Nur Variante B</span>
+    <span><strong>Nächte:</strong> 3 · Mi 28. – Fr 30.07.</span>
+    <span><strong>Fahrt:</strong> 2 Etappen (Eungella → Emerald ~5 h, Emerald → Gorge ~3 h)</span>
+  </div>
+  <div class="cols">
+    <div>
+      <p>Carnarvon Gorge ist das, was man sich unter Australien vorstellt, wenn man an Outback denkt — nur grüner: eine 30 km lange Schlucht aus <strong>weißem Sandstein</strong>, in die sich ein palmen- und farngesäumter Bach gegraben hat. Zwischen den Wänden: Känguru-Wiesen, Kakadus, absolute Stille.</p>
+      <p>Der <strong>Main Gorge Track</strong> ist eine der besten Tageswanderungen des Landes (wir gehen ~14–20 km, flach): Abstecher in den <strong>Moss Garden</strong> (tropfende, moosbewachsene Wände), ins <strong>Amphitheatre</strong> (eine Felskammer, zugänglich durch einen Spalt — Gänsehaut-Akustik) und zur <strong>Art Gallery</strong>: über 2.000 Aboriginal-Felsmalereien und -gravuren, bis zu 3.650 Jahre alt. Am zweiten Morgen steigen wir vor Sonnenaufgang auf den <strong>Boolimba Bluff</strong> (6,4 km, Leitern und Stufen) und sehen die Schlucht im ersten Licht glühen.</p>
+      <p>Übernachtet wird im <strong>BIG4 Breeze Holiday Park Carnarvon Gorge</strong> (ehemals Takarakka) direkt am Carnarvon Creek — Cabins bzw. „Taka Tents" mit eigenem Bad, seit 2024 mit neuem Restaurant. Abends Lagerfeuer-Atmosphäre, nachts der komplette Outback-Sternenhimmel, morgens Kängurus vor der Tür.</p>
+    </div>
+    <div class="dobox">
+      <h5>Was wir machen</h5>
+      <ul>
+        <li>Tag 1 (ganztags): Main Gorge Track — Moss Garden, Amphitheatre, Art Gallery</li>
+        <li>Tag 2: Boolimba Bluff zum Sonnenaufgang, nachmittags Rock Pool (Baden!) + Nature Trail</li>
+      </ul>
+      <div class="tip"><strong>Tipp:</strong> Takarakka Monate vorher buchen. Genug Wasser + Sonnenhut auf den Track; Handyempfang gibt es praktisch nicht — vorher Offline-Karten laden.</div>
+    </div>
+  </div>
+  <div class="gallery">
+    <figure><img src="https://upload.wikimedia.org/wikipedia/commons/0/09/CarnarvonGorge.jpg" alt="Carnarvon Gorge"><figcaption>Carnarvon Creek in der Schlucht</figcaption></figure>
+    <figure><img src="https://upload.wikimedia.org/wikipedia/commons/8/81/Amphitheatre_Carnarvon_Gorge_Queensland.jpg" alt="Amphitheatre"><figcaption>Das Amphitheatre</figcaption></figure>
+    <figure><img src="https://upload.wikimedia.org/wikipedia/commons/b/bf/Aboriginal_art_Carnarvon_Gorge.jpg" alt="Aboriginal-Felskunst"><figcaption>Art Gallery — Felskunst, bis zu 3.650 Jahre alt</figcaption></figure>
+  </div>
+  <div class="links">🔗 <a href="https://parks.qld.gov.au/parks/carnarvon-gorge" target="_blank" rel="noopener">Carnarvon Gorge (QPWS)</a> <a href="https://breezeholidayparks.com.au/our-parks/queensland/carnarvon-gorge/" target="_blank" rel="noopener">Breeze Holiday Parks (ehem. Takarakka)</a> <a href="https://maps.google.com/?q=Carnarvon+Gorge+QLD" target="_blank" rel="noopener">📍 Karte</a></div>
+  <a class="top" href="#highlights">↑ zurück zur Übersicht</a>
+</section>
+
+<section class="detail wrap" id="agneswater">
+  <h2><span class="n">·</span>Agnes Water / Town of 1770 <span style="color:var(--sea);font-size:.6em;vertical-align:middle">NUR VARIANTE A</span></h2>
+  <div class="meta">
+    <span class="a-only">Nur Variante A</span>
+    <span><strong>Nächte:</strong> 1 · Sa 31.07.</span>
+    <span><strong>Fahrt:</strong> ~6,5 h ab Eungella (längste Etappe der Variante A)</span>
+  </div>
+  <div class="cols">
+    <div>
+      <p>Der Übernachtungsstopp auf der langen Südetappe — aber ein guter: Agnes Water ist der <strong>nördlichste Surfstrand Queenslands</strong> (weiter nördlich blockt das Riff die Wellen), das Nachbardorf Town of 1770 markiert Captain Cooks zweiten Landgang. Entspannter Ort, schöner Strand, Sonnenuntergang über dem Wasser — als Pausentag genau richtig.</p>
+    </div>
+    <div class="dobox">
+      <h5>Was wir machen</h5>
+      <ul>
+        <li>Ankommen, Strand, Fish &amp; Chips</li>
+        <li>Sunset am 1770 Headland</li>
+        <li>Optional früh: Anfänger-Surfstunde (~30 €)</li>
+      </ul>
+    </div>
+  </div>
+  <div class="gallery">
+    <figure><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Agnes_Water_Qld%2C_2017.jpg/1920px-Agnes_Water_Qld%2C_2017.jpg" alt="Agnes Water"><figcaption>Agnes Water — nördlichster Surfstrand Queenslands</figcaption></figure>
+  </div>
+  <div class="links">🔗 <a href="https://maps.google.com/?q=Agnes+Water+QLD" target="_blank" rel="noopener">📍 Karte</a></div>
+  <a class="top" href="#highlights">↑ zurück zur Übersicht</a>
+</section>
+
+<section class="detail wrap" id="rainbowbeach">
+  <h2><span class="n">10</span>Rainbow Beach — Sprungbrett nach K'gari</h2>
+  <div class="meta">
+    <span><strong>Nächte:</strong> 1 · So 01.08.</span>
+    <span><strong>Fahrt:</strong> ~4 h (A, ab Agnes Water) / ~3 h (B, ab Bargara)</span>
+  </div>
+  <div class="cols">
+    <div>
+      <p>Rainbow Beach ist ein Ein-Straßen-Ort zwischen farbigen Sandklippen und Meer — und unsere Rampe nach K'gari. Heute wird umgerüstet: Der SUV bleibt hier stehen, wir übernehmen den <strong>gemieteten 4WD</strong> (Einweisung: Reifendruck absenken, Sandfahren, Bergungsausrüstung) und holen die Permits.</p>
+      <p>Zum Sonnenuntergang laufen wir auf den <strong>Carlo Sand Blow</strong>: eine wandernde Sanddüne von der Größe mehrerer Fußballfelder, die über dem Ort hängt — barfuß durch den kühlen Sand, Blick über Inskip Point bis nach K'gari, wo wir morgen früh hinübersetzen.</p>
+    </div>
+    <div class="dobox">
+      <h5>Was wir machen</h5>
+      <ul>
+        <li>4WD-Übernahme + Sand-Einweisung</li>
+        <li>Permits &amp; Barge-Ticket checken, Proviant bunkern</li>
+        <li>Sunset auf dem Carlo Sand Blow</li>
+      </ul>
+      <div class="tip"><strong>Tipp:</strong> Gezeitenkalender für die nächsten 3 Tage ausdrucken/screenshotten — er bestimmt unseren K'gari-Tagesplan.</div>
+    </div>
+  </div>
+  <div class="gallery">
+    <figure><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Carlo_Sand_Blow_Panorama_%2846919159382%29.jpg/1920px-Carlo_Sand_Blow_Panorama_%2846919159382%29.jpg" alt="Carlo Sand Blow"><figcaption>Carlo Sand Blow</figcaption></figure>
+    <figure><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Footprints_Carlo_Sand_Blow_%2833160372018%29.jpg/1920px-Footprints_Carlo_Sand_Blow_%2833160372018%29.jpg" alt="Fußspuren im Sand"><figcaption>Barfuß über die Wanderdüne</figcaption></figure>
+  </div>
+  <div class="links">🔗 <a href="https://maps.google.com/?q=Carlo+Sand+Blow+Rainbow+Beach" target="_blank" rel="noopener">📍 Karte</a></div>
+  <a class="top" href="#highlights">↑ zurück zur Übersicht</a>
+</section>
+
+<section class="detail wrap" id="kgari">
+  <h2><span class="n">11</span>K'gari (Fraser Island) — 4WD auf der Sandinsel</h2>
+  <div class="meta">
+    <span><strong>Nächte:</strong> 2 · Mo 02. – Di 03.08.</span>
+    <span><strong>Anreise:</strong> Barge ab Inskip Point (~10 min), dann nur noch Sand</span>
+  </div>
+  <div class="cols">
+    <div>
+      <p>K'gari ist die <strong>größte Sandinsel der Welt</strong> (UNESCO-Welterbe): 123 km Regenwald, der auf purem Sand wächst, über 100 Süßwasserseen — und keine einzige asphaltierte Straße. Der <strong>75-Mile-Beach ist der Highway</strong>, gefahren wird bei Ebbe, und genau deshalb machen wir das selbst: eigener 4WD, eigene Route, eigenes Tempo.</p>
+      <p>Die Stationen: <strong>Lake McKenzie</strong>, der berühmteste See Australiens — blendend weißer Silikatsand, Wasser wie ein Pool. <strong>Lake Wabby</strong>, smaragdgrün am Fuß einer Wanderdüne. Das rostende Wrack der <strong>SS Maheno</strong> (1935 gestrandet) direkt am Strand-Highway. Die <strong>Champagne Pools</strong>, natürliche Felsbecken, in die die Brandung sprudelt (der einzige sichere Salzwasser-Badespot der Insel), der Ausblick vom <strong>Indian Head</strong> (Rochen, Haie, mit Glück Wale) und <strong>Central Station</strong> mit dem glasklaren Wanggoolba Creek im Regenwald.</p>
+      <p>Übernachtet wird mitten drin im <strong>K'gari Beach Resort (Eurong)</strong>, direkt am 75-Mile-Beach — kein Camping, echtes Bett, Pool und Bar nach dem Sandtag. Dingos werden wir sehen: wild lassen, nichts füttern, Essen wegschließen.</p>
+    </div>
+    <div class="dobox">
+      <h5>Was wir machen</h5>
+      <ul>
+        <li>Tag 1: Barge früh, Beach-Highway nordwärts, Lake McKenzie + Central Station, einchecken Eurong</li>
+        <li>Tag 2 (ganztags, nach Gezeiten): Maheno-Wrack, The Pinnacles, Indian Head, Champagne Pools</li>
+        <li>Tag 3: Lake Wabby früh, Mittags-Barge zurück, 4WD abgeben</li>
+      </ul>
+      <div class="tip"><strong>Tipp:</strong> Fahren nur bei Ebbe ±2 h; Inland-Tracks sind Schritttempo — pro Tag max. 2–3 Ziele. Vehicle Access Permit (~60 AUD) vorab online.</div>
+    </div>
+  </div>
+  <div class="gallery">
+    <figure><img src="https://upload.wikimedia.org/wikipedia/commons/2/25/Lake_McKenzie%2C_Fraser_Island%2C_by_Ayeisha_Sheldon.jpg" alt="Lake McKenzie"><figcaption>Lake McKenzie</figcaption></figure>
+    <figure><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Maheno_Wreck%2C_Fraser_Island_%28K%27GARI%29_Queensland.jpg/1920px-Maheno_Wreck%2C_Fraser_Island_%28K%27GARI%29_Queensland.jpg" alt="Maheno-Wrack"><figcaption>SS-Maheno-Wrack am 75-Mile-Beach</figcaption></figure>
+    <figure><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Lake_Wabby_on_Fraser_Island.jpg/1920px-Lake_Wabby_on_Fraser_Island.jpg" alt="Lake Wabby"><figcaption>Lake Wabby an der Wanderdüne</figcaption></figure>
+    <figure><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Champagne_Pools_Middle_Rocks_Fraser_Island_Queensland_August_1986_IMG_0017a.jpg/1920px-Champagne_Pools_Middle_Rocks_Fraser_Island_Queensland_August_1986_IMG_0017a.jpg" alt="Champagne Pools"><figcaption>Champagne Pools</figcaption></figure>
+    <figure><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Airplane_taking_off_from_75_Mile_Beach%2C_Fraser_Island%2C_2001.jpg/1920px-Airplane_taking_off_from_75_Mile_Beach%2C_Fraser_Island%2C_2001.jpg" alt="75 Mile Beach"><figcaption>75-Mile-Beach — Highway und Landebahn</figcaption></figure>
+  </div>
+  <div class="links">🔗 <a href="https://parks.qld.gov.au/parks/kgari-fraser" target="_blank" rel="noopener">K'gari (QPWS) — Permits</a> <a href="https://maps.google.com/?q=Eurong+K%27gari" target="_blank" rel="noopener">📍 Karte</a></div>
+  <a class="top" href="#highlights">↑ zurück zur Übersicht</a>
+</section>
+
+<section class="detail wrap" id="noosa">
+  <h2><span class="n">12</span>Noosa — Surfstadt zum Ausklingen</h2>
+  <div class="meta">
+    <span><strong>Nächte:</strong> 2 · Mi 04. – Do 05.08.</span>
+    <span><strong>Fahrt:</strong> ~2 h ab Rainbow Beach</span>
+  </div>
+  <div class="cols">
+    <div>
+      <p>Noosa ist der eleganteste Ort der Sunshine Coast: Boutiquen-Hauptstraße unter Feigenbäumen (Hastings Street), ein geschützter, familienfreundlicher <strong>Main Beach</strong> mit sanften Longboard-Wellen — und direkt daneben der <strong>Noosa-Nationalpark</strong>.</p>
+      <p>Der <strong>Coastal Walk</strong> (bis Hell's Gates und zurück, ~8 km) gehört zu den schönsten Küstenwegen des Landes: Pandanus-Palmen, Buchten wie die Tea Tree Bay, Delfine — und im Juli/August ziehen <strong>Buckelwale</strong> direkt vor der Küste vorbei. Danach: Baden, Eis, Sundowner an der Noosa Marina. Wer noch Energie hat, paddelt mit dem Kajak durch die <strong>Everglades</strong> des Noosa River (eines von nur zwei Everglades-Systemen weltweit).</p>
+    </div>
+    <div class="dobox">
+      <h5>Was wir machen</h5>
+      <ul>
+        <li>Coastal Walk früh (Wale! Delfine!), dann Main Beach</li>
+        <li>Hastings Street, gutes Abendessen</li>
+        <li>Optional: Everglades-Kajak oder Surfstunde</li>
+      </ul>
+      <div class="tip"><strong>Tipp:</strong> Fairy Pools im Nationalpark bei ruhiger See — kleiner natürlicher Infinity-Pool im Fels (kein Schild, kurz vor Hell's Gates).</div>
+    </div>
+  </div>
+  <div class="gallery">
+    <figure><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Noosa_National_Park_coastal_vista_looking_north_east.jpg/1920px-Noosa_National_Park_coastal_vista_looking_north_east.jpg" alt="Noosa Coastal Walk"><figcaption>Coastal Walk im Noosa-Nationalpark</figcaption></figure>
+    <figure><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Noosa_Beach%2C_Noosa_Heads%2C_Queensland%2C_2022.jpg/1920px-Noosa_Beach%2C_Noosa_Heads%2C_Queensland%2C_2022.jpg" alt="Noosa Main Beach"><figcaption>Main Beach</figcaption></figure>
+    <figure><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Hell_gate_at_Noosa_National_park.jpg/1920px-Hell_gate_at_Noosa_National_park.jpg" alt="Hell's Gates"><figcaption>Hell's Gates</figcaption></figure>
+  </div>
+  <div class="links">🔗 <a href="https://parks.qld.gov.au/parks/noosa" target="_blank" rel="noopener">Noosa National Park (QPWS)</a> <a href="https://maps.google.com/?q=Noosa+Heads+QLD" target="_blank" rel="noopener">📍 Karte</a></div>
+  <a class="top" href="#highlights">↑ zurück zur Übersicht</a>
+</section>
+
+<section class="detail wrap" id="brisbane">
+  <h2><span class="n">✈</span>Brisbane — das Finale</h2>
+  <div class="meta">
+    <span><strong>Nächte:</strong> 1 · Fr 06.08.</span>
+    <span><strong>Fahrt:</strong> ~1,5 h ab Noosa · Sa 07.08. Heimflug</span>
+  </div>
+  <div class="cols">
+    <div>
+      <p>Brisbane ist der entspannte Abschluss: SUV abgeben, einmal Großstadt light. Die <strong>South Bank Parklands</strong> am Fluss haben alles für den letzten Tag — Promenade, die Bougainvillea-Pergola, Restaurants und <strong>Streets Beach</strong>, Australiens einzigen künstlichen Innenstadt-Strand mit Lagune und Blick auf die Skyline. Ein letztes Mal baden, abends über die Story-Bridge-Kulisse am Fluss essen, vielleicht ein CityCat-Fährenritt als Mini-Sightseeing.</p>
+      <p>Samstag früh: Flughafen (20 min), Heimflug — Landung in Deutschland am Sonntag, den 8. August. Zehn Tage Puffer bis zum Schulstart.</p>
+    </div>
+    <div class="dobox">
+      <h5>Was wir machen</h5>
+      <ul>
+        <li>South Bank + Streets Beach</li>
+        <li>CityCat-Fähre über den Brisbane River</li>
+        <li>Abschieds-Dinner (Eagle Street Pier / Howard Smith Wharves)</li>
+      </ul>
+    </div>
+  </div>
+  <div class="gallery">
+    <figure><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Streets_Beach%2C_South_Bank_Parklands%2C_Brisbane%2C_June_2022%2C_01.jpg/1920px-Streets_Beach%2C_South_Bank_Parklands%2C_Brisbane%2C_June_2022%2C_01.jpg" alt="Streets Beach"><figcaption>Streets Beach, South Bank</figcaption></figure>
+    <figure><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Brisbane_River_and_skyline_of_Brisbane_Australia.jpg/1920px-Brisbane_River_and_skyline_of_Brisbane_Australia.jpg" alt="Brisbane Skyline"><figcaption>Brisbane River &amp; Skyline</figcaption></figure>
+  </div>
+  <div class="links">🔗 <a href="https://maps.google.com/?q=South+Bank+Parklands+Brisbane" target="_blank" rel="noopener">📍 Karte</a></div>
+  <a class="top" href="#highlights">↑ zurück zur Übersicht</a>
+</section>
+
+<!-- ===================== PRAKTISCHES ===================== -->
 
 <section class="wrap">
-  <h2>K'gari: Wir fahren selbst</h2>
-  <ul class="clean">
-    <li>SUV bleibt in Rainbow Beach, <strong>4WD-Miete vor Ort</strong> (3 Tage), Barge ab Inskip Point (~10 min)</li>
-    <li><strong>Vehicle Access Permit</strong> vorab online (~60 AUD)</li>
-    <li>Beach-Highway nur bei <strong>Ebbe ± 2 h</strong> — der Gezeitenkalender ist unser Tagesplan</li>
-    <li>2 Nächte <strong>Eurong Beach Resort</strong> direkt am 75-Mile-Beach (festes Apartment, kein Camping)</li>
-    <li>Inland-Tracks (Lake McKenzie, Central Station) sind Schritttempo-Sandpisten — Tagesziele klein halten</li>
-    <li>Dingo-Regeln beachten, kein Essen offen lassen</li>
-  </ul>
-
-  <h2 style="margin-top:1.8em">Budget (pro Person, grob)</h2>
+  <h2>Budget (pro Person, grob)</h2>
   <div class="tbl-scroll"><table>
     <tr><th>Posten</th><th>p.P.</th></tr>
     <tr><td>Flüge (Open-Jaw FRA→Cairns / Brisbane→FRA)</td><td>1.900 – 2.400 €</td></tr>
@@ -273,7 +708,8 @@
     <li><strong>Krokodile:</strong> ab Cardwell nordwärts real — nicht in Flussmündungen/Mangroven baden. Sicher: Esplanade Lagoon, Four Mile Beach, Magnetic-Island-Buchten, Whitsundays, Kraterseen, alle K'gari-Seen.</li>
     <li><strong>Quallen:</strong> im Juli/August kein Thema (Stinger-Saison ist Nov–Mai).</li>
     <li><strong>Auto:</strong> normaler 2WD-SUV reicht für alles außer K'gari. Vor der Daintree-Fähre volltanken.</li>
-    <li><strong>Formalitäten:</strong> ETA-Visum online, internationaler Führerschein für alle Fahrer.</li>
+    <li><strong>Formalitäten:</strong> ETA-Visum online (App), internationaler Führerschein für alle Fahrer.</li>
+    <li><strong>Unterkünfte:</strong> überall 2-Schlafzimmer-Apartments angepeilt — Details stehen im Planungsdokument; gebucht wird Nov/Dez 2026.</li>
   </ul>
 
   <div class="cta">
@@ -289,8 +725,8 @@
 
 <footer>
   <div class="wrap">
-    Bilder: Wikimedia Commons — Whitehaven Beach (CC BY-SA 4.0), Flynn Reef © Toby Hudson (CC BY-SA 3.0), Esplanade Lagoon Cairns © Kgbo (CC BY-SA 4.0), Mossman Gorge (CC BY-SA 4.0), Cape Tribulation © Peterdownunder (CC BY-SA 3.0), Millaa Millaa Falls © Agmonsnir (CC BY-SA 4.0), Cassowary (CC BY 2.0), Koala Magnetic Island (CC BY-SA 2.0), Whitehaven Beach Northern End (CC BY-SA 4.0), Carnarvon Gorge (CC BY-SA 3.0), Lake McKenzie © Ayeisha Sheldon (CC BY 4.0), 75 Mile Beach © Calistemon (CC BY-SA 4.0), Noosa Beach © Kgbo (CC BY-SA 4.0), Brisbane © MusikAnimal (CC BY-SA 4.0).<br>
-    Planungsstand Juli 2026 · Preise sind Schätzungen.
+    Alle Fotos: <a href="https://commons.wikimedia.org" target="_blank" rel="noopener">Wikimedia Commons</a>, frei lizenziert (CC BY, CC BY-SA, CC0 bzw. Public Domain). Vollständiger Bildnachweis: Dateiname aus der jeweiligen Bild-URL auf commons.wikimedia.org aufrufen — dort stehen Urheber und Lizenz.<br>
+    Planungsstand Juli 2026 · Preise sind Schätzungen · Details &amp; Unterkunftsliste im Planungsdokument.
   </div>
 </footer>
 

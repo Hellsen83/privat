@@ -125,7 +125,7 @@ In Queensland sind 2-Schlafzimmer-Ferienapartments Standard – meist **150–30
 | Eungella | Broken River Mountain Resort | Lodge direkt am Platypus-Spot |
 | Agnes Water (nur A) | Agnes Water Beach Club | 2-BR-Apartment |
 | Emerald (nur B) | Motel (z. B. Emerald Explorers Inn) | Zweckstopp |
-| Carnarvon (nur B) | Takarakka Bush Resort (Cabins) / Wilderness Lodge | Safari-Cabins |
+| Carnarvon (nur B) | BIG4 Breeze Holiday Park Carnarvon Gorge (ehem. Takarakka; Cabins/Taka Tents) / Wilderness Lodge | Safari-Cabins |
 | Bargara (nur B) | Kacy's Bargara Beach Motel / Apartment | Zweckstopp am Meer |
 | Rainbow Beach | Debbie's Place / Plantation Resort | Apartment |
 | K'gari | **Eurong Beach Resort** (2-BR-Apartment) – direkt am 75-Mile-Beach | Resort |
