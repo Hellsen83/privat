@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Australien 2027 · Cairns → Brisbane</title>
+<style>
+  :root{
+    --ink:#15242b; --ink-soft:#4a6270; --paper:#f7f5f0; --card:#ffffff;
+    --sea:#0e7490; --sea-deep:#155e75; --sand:#e9dfc8; --accent:#e0762e;
+    --line:#e3ddd0; --ok:#2f7d4f;
+    --radius:14px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:"Avenir Next","Segoe UI",system-ui,sans-serif;background:var(--paper);color:var(--ink);line-height:1.6}
+  .wrap{max-width:980px;margin:0 auto;padding:0 20px}
+
+  /* Hero */
+  .hero{position:relative;height:78vh;min-height:480px;overflow:hidden;display:flex;align-items:flex-end}
+  .hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,30,40,.15) 30%,rgba(10,30,40,.75) 100%)}
+  .hero-text{position:relative;z-index:2;color:#fff;padding:0 20px 56px;max-width:980px;margin:0 auto;width:100%}
+  .hero-text .kicker{text-transform:uppercase;letter-spacing:.25em;font-size:.8rem;opacity:.9}
+  .hero-text h1{font-size:clamp(2.4rem,6vw,4.2rem);font-weight:700;line-height:1.05;margin:.3em 0 .2em}
+  .hero-text p{font-size:1.15rem;max-width:34em;opacity:.95}
+
+  section{padding:56px 0}
+  h2{font-size:1.9rem;margin-bottom:.6em;color:var(--sea-deep)}
+  h3{font-size:1.25rem;margin:1.4em 0 .5em;color:var(--sea-deep)}
+  p+p{margin-top:.8em}
+  .lead{font-size:1.12rem;color:var(--ink-soft)}
+
+  /* Fact chips */
+  .facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px;margin-top:26px}
+  .fact{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px}
+  .fact .k{font-size:.78rem;text-transform:uppercase;letter-spacing:.12em;color:var(--ink-soft)}
+  .fact .v{font-size:1.15rem;font-weight:600;margin-top:4px}
+
+  /* Tables */
+  table{width:100%;border-collapse:collapse;background:var(--card);border-radius:var(--radius);overflow:hidden;font-size:.95rem}
+  th,td{padding:11px 14px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+  th{background:var(--sea-deep);color:#fff;font-weight:600}
+  tr:last-child td{border-bottom:none}
+  td:first-child{white-space:nowrap;font-weight:600;color:var(--sea-deep)}
+  .tbl-scroll{overflow-x:auto;border-radius:var(--radius);box-shadow:0 1px 3px rgba(0,0,0,.06)}
+
+  /* Photo band */
+  .band{position:relative;height:46vh;min-height:320px;overflow:hidden}
+  .band img{width:100%;height:100%;object-fit:cover}
+  .band figcaption{position:absolute;bottom:0;left:0;right:0;padding:24px 20px 14px;background:linear-gradient(transparent,rgba(10,30,40,.7));color:#fff;font-size:.95rem}
+  .band figcaption .wrap{padding:0 20px}
+
+  /* Cards / gallery */
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;margin-top:24px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.05)}
+  .card img{width:100%;height:200px;object-fit:cover;display:block}
+  .card .pad{padding:16px 18px 18px}
+  .card h4{font-size:1.05rem;color:var(--sea-deep);margin-bottom:4px}
+  .card p{font-size:.92rem;color:var(--ink-soft)}
+
+  /* Variant boxes */
+  .variants{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:24px 0}
+  @media(max-width:760px){.variants{grid-template-columns:1fr}}
+  .variant{border-radius:var(--radius);padding:24px;border:2px solid var(--line);background:var(--card)}
+  .variant.a{border-color:var(--sea)}
+  .variant.b{border-color:var(--accent)}
+  .variant .tag{display:inline-block;font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;padding:4px 10px;border-radius:999px;color:#fff;margin-bottom:10px}
+  .variant.a .tag{background:var(--sea)}
+  .variant.b .tag{background:var(--accent)}
+  .variant ul{margin:10px 0 0 1.1em;font-size:.95rem}
+  .variant li{margin-bottom:5px}
+
+  .note{background:var(--sand);border-radius:var(--radius);padding:18px 22px;margin:22px 0;font-size:.97rem}
+  .note strong{color:var(--sea-deep)}
+  .cta{background:var(--sea-deep);color:#fff;border-radius:var(--radius);padding:26px 28px;margin-top:30px}
+  .cta h3{color:#fff;margin-top:0}
+
+  ul.clean{margin-left:1.2em}
+  ul.clean li{margin-bottom:6px}
+
+  footer{padding:40px 0 60px;border-top:1px solid var(--line);margin-top:40px;font-size:.8rem;color:var(--ink-soft)}
+  footer a{color:var(--sea)}
+  .n{display:inline-block;background:var(--sea);color:#fff;border-radius:999px;width:1.6em;height:1.6em;text-align:center;line-height:1.6em;font-size:.8em;font-weight:700;margin-right:.5em}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Whitehaven_Beach%2C_Whitsunday_Islands_National_Park.jpg/1920px-Whitehaven_Beach%2C_Whitsunday_Islands_National_Park.jpg" alt="Whitehaven Beach, Whitsunday Islands">
+  <div class="hero-text">
+    <div class="kicker">Erik · Laura · Hauke · Inga</div>
+    <h1>Australien 2027</h1>
+    <p>28 Nächte Queensland: Cairns → Brisbane. Regenwald, Riff, Inseln, Outback-Option — Roadtrip mit SUV, Hotel-Hopping, mitten in der Trockenzeit.</p>
+  </div>
+</div>
+
+<section class="wrap">
+  <h2>Die Eckdaten</h2>
+  <p class="lead">Wir fliegen am ersten Ferientag los und sind mit zehn Tagen Puffer vor Schulstart zurück. Gereist wird im australischen Winter — im tropischen Norden heißt das: Trockenzeit, 22–30&nbsp;°C, klarer Himmel, badewarmes Wasser. Der Süden (Sydney, Melbourne) hat dann Winter — den heben wir uns auf.</p>
+  <div class="facts">
+    <div class="fact"><div class="k">Abflug</div><div class="v">Do 08.07.2027 ab FRA</div></div>
+    <div class="fact"><div class="k">Ankunft Cairns</div><div class="v">Sa 10.07. früh</div></div>
+    <div class="fact"><div class="k">Rückflug ab Brisbane</div><div class="v">Sa 07.08.2027</div></div>
+    <div class="fact"><div class="k">Vor Ort</div><div class="v">28 Nächte</div></div>
+    <div class="fact"><div class="k">Strecke</div><div class="v">~2.500 km, Nord → Süd</div></div>
+    <div class="fact"><div class="k">Unterkunft</div><div class="v">2-BR-Apartments, &lt; 100 € p.P./Nacht</div></div>
+  </div>
+</section>
+
+<figure class="band">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Coral_Outcrop_Flynn_Reef.jpg/1920px-Coral_Outcrop_Flynn_Reef.jpg" alt="Korallen am Flynn Reef, Great Barrier Reef">
+  <figcaption><div class="wrap">Great Barrier Reef — Outer-Reef-Tour ab Port Douglas, Woche 1</div></figcaption>
+</figure>
+
+<section class="wrap">
+  <h2>Zwei Varianten — ihr entscheidet</h2>
+  <p class="lead">Beide Routen starten identisch (Cairns, Port Douglas, Cape Tribulation) und enden identisch (K'gari, Noosa, Brisbane). Der Unterschied liegt in der Mitte:</p>
+  <div class="variants">
+    <div class="variant a">
+      <span class="tag">Variante A</span>
+      <h3 style="margin-top:0">Küste pur</h3>
+      <p>Maximal Reef, Inseln, Strand. Entspanntes Tempo, nur eine Fahretappe über 5&nbsp;Stunden.</p>
+      <ul>
+        <li>3 Nächte Atherton Tablelands (Wasserfälle, Kraterseen)</li>
+        <li>2 Nächte Mission Beach + 3 Nächte Magnetic Island</li>
+        <li>4 Nächte Airlie Beach inkl. 2-Tage-Segeltörn</li>
+        <li>Extra-Stopp Agnes Water / Town of 1770</li>
+      </ul>
+    </div>
+    <div class="variant b">
+      <span class="tag">Variante B</span>
+      <h3 style="margin-top:0">Mit Carnarvon Gorge</h3>
+      <p>4-Tage-Outback-Detour zu einer der besten Wanderungen Australiens: Sandstein-Schluchten, Palmen-Oasen, Aboriginal-Felskunst.</p>
+      <ul>
+        <li>2 volle Wandertage in der Gorge (Amphitheatre, Moss Garden, Art Gallery, Boolimba Bluff bei Sonnenaufgang)</li>
+        <li>Dafür: je 1 Nacht weniger in Atherton, Mission Beach, Magnetic Island, Airlie</li>
+        <li>Preis: 2 zusätzliche lange Fahrtage (5 h + 7 h)</li>
+      </ul>
+    </div>
+  </div>
+  <div class="note"><strong>Empfehlung als Daumenregel:</strong> A, wenn Strand &amp; Schnorcheln Priorität haben. B, wenn die Gruppe wanderverrückt ist und einmal echtes Outback sehen will.</div>
+</section>
+
+<section class="wrap" style="padding-top:0">
+  <h2>Variante A · Tag für Tag</h2>
+  <div class="tbl-scroll"><table>
+    <tr><th>Nächte</th><th>Datum</th><th>Ort</th><th>Programm</th></tr>
+    <tr><td>3</td><td>Sa 10. – Mo 12.07.</td><td>Cairns</td><td>Ankommen &amp; Jetlag, Esplanade Lagoon, Kuranda Scenic Railway + Skyrail, Nachtmarkt</td></tr>
+    <tr><td>3</td><td>Di 13. – Do 15.07.</td><td>Port Douglas</td><td>Outer-Reef-Tour (Agincourt Reef), Mossman Gorge, Four Mile Beach</td></tr>
+    <tr><td>2</td><td>Fr 16. – Sa 17.07.</td><td>Cape Tribulation</td><td>Daintree-Fähre, Regenwald-Boardwalks, Mt.&nbsp;Sorrow Ridge Trail oder Strandtag</td></tr>
+    <tr><td>3</td><td>So 18. – Di 20.07.</td><td>Atherton Tablelands</td><td>Wasserfall-Loop (Millaa Millaa, Zillie, Ellinjaa), Curtain Fig, Baden im Lake Eacham, Platypus am Peterson Creek</td></tr>
+    <tr><td>2</td><td>Mi 21. – Do 22.07.</td><td>Mission Beach</td><td>14-km-Strand, Cassowary-Spotting, optional Dunk Island</td></tr>
+    <tr><td>3</td><td>Fr 23. – So 25.07.</td><td>Magnetic Island</td><td>Auto bleibt in Townsville. Forts Walk (wilde Koalas), Buchten-Hopping, Kajak</td></tr>
+    <tr><td>4</td><td>Mo 26. – Do 29.07.</td><td>Airlie Beach</td><td><strong>2-Tage-Segeltörn Whitsundays:</strong> Whitehaven Beach, Hill Inlet, Schnorcheln + Puffertag</td></tr>
+    <tr><td>1</td><td>Fr 30.07.</td><td>Eungella NP</td><td>Wilde Schnabeltiere am Broken River (Dämmerung + früher Morgen)</td></tr>
+    <tr><td>1</td><td>Sa 31.07.</td><td>Agnes Water / 1770</td><td>Fahrtag (~6,5 h, längste Etappe), abends Strand</td></tr>
+    <tr><td>1</td><td>So 01.08.</td><td>Rainbow Beach</td><td>4WD-Übernahme + Einweisung, Carlo Sand Blow zum Sonnenuntergang</td></tr>
+    <tr><td>2</td><td>Mo 02. – Di 03.08.</td><td>K'gari (Fraser Island)</td><td>4WD-Selbstfahrt: 75-Mile-Beach, Lake McKenzie, Lake Wabby, Maheno-Wrack, Champagne Pools</td></tr>
+    <tr><td>2</td><td>Mi 04. – Do 05.08.</td><td>Noosa</td><td>Noosa-NP-Coastal-Walk, Main Beach, optional Everglades</td></tr>
+    <tr><td>1</td><td>Fr 06.08.</td><td>Brisbane</td><td>South Bank, Streets Beach, Abschiedsabend</td></tr>
+    <tr><td>—</td><td>Sa 07.08.</td><td>Heimflug</td><td>ab Brisbane, Landung DE So 08.08.</td></tr>
+  </table></div>
+</section>
+
+<section class="wrap" style="padding-top:0">
+  <h2>Variante B · Tag für Tag</h2>
+  <p>Bis 17.07. identisch mit A, danach gestrafft — Carnarvon Gorge kommt zwischen Eungella und die Küste:</p>
+  <div class="tbl-scroll"><table>
+    <tr><th>Nächte</th><th>Datum</th><th>Ort</th><th>Programm</th></tr>
+    <tr><td>3</td><td>Sa 10. – Mo 12.07.</td><td>Cairns</td><td>wie Variante A</td></tr>
+    <tr><td>3</td><td>Di 13. – Do 15.07.</td><td>Port Douglas</td><td>wie Variante A (inkl. Reef-Tour)</td></tr>
+    <tr><td>2</td><td>Fr 16. – Sa 17.07.</td><td>Cape Tribulation</td><td>wie Variante A</td></tr>
+    <tr><td>2</td><td>So 18. – Mo 19.07.</td><td>Atherton Tablelands</td><td>Wasserfall-Loop komprimiert, Lake Eacham</td></tr>
+    <tr><td>1</td><td>Di 20.07.</td><td>Mission Beach</td><td>Stopp Etty Bay (Cassowaries), Strandnachmittag</td></tr>
+    <tr><td>2</td><td>Mi 21. – Do 22.07.</td><td>Magnetic Island</td><td>Forts Walk + Buchtentag</td></tr>
+    <tr><td>3</td><td>Fr 23. – So 25.07.</td><td>Airlie Beach</td><td>2-Tage-Segeltörn Whitsundays</td></tr>
+    <tr><td>1</td><td>Mo 26.07.</td><td>Eungella NP</td><td>Schnabeltiere am Broken River</td></tr>
+    <tr><td>1</td><td>Di 27.07.</td><td>Emerald</td><td>Fahrtag ~5 h (Zwischenstopp)</td></tr>
+    <tr><td>3</td><td>Mi 28. – Fr 30.07.</td><td>Carnarvon Gorge</td><td>Main Gorge Track (Amphitheatre, Moss Garden, Art Gallery — Felskunst), Boolimba Bluff zum Sonnenaufgang</td></tr>
+    <tr><td>1</td><td>Sa 31.07.</td><td>Bargara (Bundaberg)</td><td>Fahrtag ~7 h, zurück an der Küste</td></tr>
+    <tr><td>1</td><td>So 01.08.</td><td>Rainbow Beach</td><td>4WD-Übernahme, Carlo Sand Blow</td></tr>
+    <tr><td>2</td><td>Mo 02. – Di 03.08.</td><td>K'gari (Fraser Island)</td><td>wie Variante A</td></tr>
+    <tr><td>2</td><td>Mi 04. – Do 05.08.</td><td>Noosa</td><td>wie Variante A</td></tr>
+    <tr><td>1</td><td>Fr 06.08.</td><td>Brisbane</td><td>wie Variante A</td></tr>
+    <tr><td>—</td><td>Sa 07.08.</td><td>Heimflug</td><td>ab Brisbane</td></tr>
+  </table></div>
+</section>
+
+<section class="wrap" style="padding-top:0">
+  <h2>Die Highlights</h2>
+  <div class="cards">
+    <div class="card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Esplanade_Lagoon%2C_Cairns%2C_2025%2C_04.jpg/1920px-Esplanade_Lagoon%2C_Cairns%2C_2025%2C_04.jpg" alt="Cairns Esplanade Lagoon">
+      <div class="pad"><h4><span class="n">1</span>Cairns</h4><p>Ankommen in den Tropen: Esplanade Lagoon, Kuranda-Bahn durch den Regenwald, Nachtmarkt.</p></div>
+    </div>
+    <div class="card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Mossman_Gorge_01.jpg/1920px-Mossman_Gorge_01.jpg" alt="Mossman Gorge">
+      <div class="pad"><h4><span class="n">2</span>Port Douglas &amp; Mossman Gorge</h4><p>Outer-Reef-Tour zum Agincourt Reef, glasklare Gumpen in der Mossman Gorge, Four Mile Beach.</p></div>
+    </div>
+    <div class="card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Cape_Tribulation_from_Cocnut_Beach.jpg" alt="Cape Tribulation">
+      <div class="pad"><h4><span class="n">3</span>Cape Tribulation</h4><p>Wo der älteste Regenwald der Welt auf das Riff trifft. Boardwalks, einsame Strände, Mt.&nbsp;Sorrow.</p></div>
+    </div>
+    <div class="card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/MillaaMillaaFallsOct272024_01.jpg/1920px-MillaaMillaaFallsOct272024_01.jpg" alt="Millaa Millaa Falls">
+      <div class="pad"><h4><span class="n">4</span>Atherton Tablelands</h4><p>Wasserfall-Loop (Millaa Millaa!), Baden in krokodilfreien Kraterseen, Schnabeltier-Chance.</p></div>
+    </div>
+    <div class="card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Casuarius_casuarius_-Emmagen_Creek%2C_Queensland%2C_Australia_-adult_and_chick-8.jpg/1920px-Casuarius_casuarius_-Emmagen_Creek%2C_Queensland%2C_Australia_-adult_and_chick-8.jpg" alt="Cassowary mit Küken">
+      <div class="pad"><h4><span class="n">5</span>Mission Beach</h4><p>14 km Sandstrand und die besten Chancen auf wilde Cassowaries — Urzeitvögel mit Helm.</p></div>
+    </div>
+    <div class="card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Koala%2C_Fort_walk%2C_Magnetic_Island_.jpg/1920px-Koala%2C_Fort_walk%2C_Magnetic_Island_.jpg" alt="Wilder Koala auf Magnetic Island">
+      <div class="pad"><h4><span class="n">6</span>Magnetic Island</h4><p>Wilde Koalas am Forts Walk, versteckte Buchten, Insel-Feeling ohne Auto.</p></div>
+    </div>
+    <div class="card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Whitehaven_Beach_-_Northern_End.jpg/1920px-Whitehaven_Beach_-_Northern_End.jpg" alt="Whitehaven Beach, nördliches Ende">
+      <div class="pad"><h4><span class="n">7</span>Whitsundays</h4><p>2-Tage-Segeltörn: Whitehaven Beach, Hill Inlet Lookout, Schnorcheln am Riff, Nacht an Bord.</p></div>
+    </div>
+    <div class="card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/CarnarvonGorge.jpg" alt="Carnarvon Gorge">
+      <div class="pad"><h4><span class="n">8</span>Carnarvon Gorge <em style="color:var(--accent);font-style:normal">(nur B)</em></h4><p>Sandstein-Schluchten, Moss Garden, 3.500 Jahre alte Aboriginal-Felskunst. Outback pur.</p></div>
+    </div>
+    <div class="card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/2/25/Lake_McKenzie%2C_Fraser_Island%2C_by_Ayeisha_Sheldon.jpg" alt="Lake McKenzie, K'gari">
+      <div class="pad"><h4><span class="n">9</span>K'gari — Lake McKenzie</h4><p>Weißer Silikatsand, glasklares Süßwasser — mitten auf der größten Sandinsel der Welt.</p></div>
+    </div>
+    <div class="card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Airplane_taking_off_from_75_Mile_Beach%2C_Fraser_Island%2C_2001.jpg/1920px-Airplane_taking_off_from_75_Mile_Beach%2C_Fraser_Island%2C_2001.jpg" alt="75 Mile Beach">
+      <div class="pad"><h4><span class="n">10</span>75-Mile-Beach</h4><p>Wir fahren selbst 4WD: Strand-Highway, Maheno-Schiffswrack, Champagne Pools. Zwei Nächte im Eurong Beach Resort.</p></div>
+    </div>
+    <div class="card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Noosa_Beach%2C_Noosa_Heads%2C_Queensland%2C_2022.jpg/1920px-Noosa_Beach%2C_Noosa_Heads%2C_Queensland%2C_2022.jpg" alt="Noosa Main Beach">
+      <div class="pad"><h4><span class="n">11</span>Noosa</h4><p>Coastal Walk im Nationalpark (Delfine, im Winter Wale), Surfstadt-Flair, gutes Essen.</p></div>
+    </div>
+    <div class="card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Brisbane_River_and_skyline_of_Brisbane_Australia.jpg/1920px-Brisbane_River_and_skyline_of_Brisbane_Australia.jpg" alt="Brisbane Skyline">
+      <div class="pad"><h4><span class="n">12</span>Brisbane</h4><p>Finale: South Bank, Streets Beach, ein letzter Abend — dann Heimflug.</p></div>
+    </div>
+  </div>
+</section>
+
+<figure class="band">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/2/25/Lake_McKenzie%2C_Fraser_Island%2C_by_Ayeisha_Sheldon.jpg" alt="Lake McKenzie">
+  <figcaption><div class="wrap">Lake McKenzie, K'gari — Woche 4, mit dem eigenen 4WD</div></figcaption>
+</figure>
+
+<section class="wrap">
+  <h2>K'gari: Wir fahren selbst</h2>
+  <ul class="clean">
+    <li>SUV bleibt in Rainbow Beach, <strong>4WD-Miete vor Ort</strong> (3 Tage), Barge ab Inskip Point (~10 min)</li>
+    <li><strong>Vehicle Access Permit</strong> vorab online (~60 AUD)</li>
+    <li>Beach-Highway nur bei <strong>Ebbe ± 2 h</strong> — der Gezeitenkalender ist unser Tagesplan</li>
+    <li>2 Nächte <strong>Eurong Beach Resort</strong> direkt am 75-Mile-Beach (festes Apartment, kein Camping)</li>
+    <li>Inland-Tracks (Lake McKenzie, Central Station) sind Schritttempo-Sandpisten — Tagesziele klein halten</li>
+    <li>Dingo-Regeln beachten, kein Essen offen lassen</li>
+  </ul>
+
+  <h2 style="margin-top:1.8em">Budget (pro Person, grob)</h2>
+  <div class="tbl-scroll"><table>
+    <tr><th>Posten</th><th>p.P.</th></tr>
+    <tr><td>Flüge (Open-Jaw FRA→Cairns / Brisbane→FRA)</td><td>1.900 – 2.400 €</td></tr>
+    <tr><td>Unterkünfte (28 Nächte, Anteil)</td><td>2.000 – 2.500 €</td></tr>
+    <tr><td>SUV 26 Tage + Sprit (Anteil)</td><td>600 – 800 €</td></tr>
+    <tr><td>4WD K'gari + Barge + Permit (Anteil)</td><td>200 – 250 €</td></tr>
+    <tr><td>Reef-Tour, Segeltörn, Aktivitäten</td><td>700 – 900 €</td></tr>
+    <tr><td>Essen &amp; Sonstiges (~50 €/Tag)</td><td>1.400 €</td></tr>
+    <tr><td><strong>Summe</strong></td><td><strong>≈ 6.800 – 8.200 €</strong></td></tr>
+  </table></div>
+
+  <h2 style="margin-top:1.8em">Gut zu wissen</h2>
+  <ul class="clean">
+    <li><strong>Krokodile:</strong> ab Cardwell nordwärts real — nicht in Flussmündungen/Mangroven baden. Sicher: Esplanade Lagoon, Four Mile Beach, Magnetic-Island-Buchten, Whitsundays, Kraterseen, alle K'gari-Seen.</li>
+    <li><strong>Quallen:</strong> im Juli/August kein Thema (Stinger-Saison ist Nov–Mai).</li>
+    <li><strong>Auto:</strong> normaler 2WD-SUV reicht für alles außer K'gari. Vor der Daintree-Fähre volltanken.</li>
+    <li><strong>Formalitäten:</strong> ETA-Visum online, internationaler Führerschein für alle Fahrer.</li>
+  </ul>
+
+  <div class="cta">
+    <h3>Was jetzt zu tun ist</h3>
+    <ul class="clean">
+      <li><strong>Ihr: Variante A oder B?</strong> → Rückmeldung an Erik</li>
+      <li><strong>Jetzt:</strong> Price-Alerts FRA→Cairns setzen (Flüge ~355 Tage vorher buchbar)</li>
+      <li><strong>Ab August 2026:</strong> Flüge buchen</li>
+      <li><strong>Nov/Dez 2026:</strong> Unterkünfte, Reef-Tour, Segeltörn, Eurong + 4WD buchen (australische Schulferien — früh dicht!)</li>
+    </ul>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    Bilder: Wikimedia Commons — Whitehaven Beach (CC BY-SA 4.0), Flynn Reef © Toby Hudson (CC BY-SA 3.0), Esplanade Lagoon Cairns © Kgbo (CC BY-SA 4.0), Mossman Gorge (CC BY-SA 4.0), Cape Tribulation © Peterdownunder (CC BY-SA 3.0), Millaa Millaa Falls © Agmonsnir (CC BY-SA 4.0), Cassowary (CC BY 2.0), Koala Magnetic Island (CC BY-SA 2.0), Whitehaven Beach Northern End (CC BY-SA 4.0), Carnarvon Gorge (CC BY-SA 3.0), Lake McKenzie © Ayeisha Sheldon (CC BY 4.0), 75 Mile Beach © Calistemon (CC BY-SA 4.0), Noosa Beach © Kgbo (CC BY-SA 4.0), Brisbane © MusikAnimal (CC BY-SA 4.0).<br>
+    Planungsstand Juli 2026 · Preise sind Schätzungen.
+  </div>
+</footer>
+
+</body>
+</html>
