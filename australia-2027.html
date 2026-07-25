@@ -104,6 +104,16 @@
 
   footer{padding:40px 0 60px;border-top:1px solid var(--line);margin-top:40px;font-size:.8rem;color:var(--ink-soft)}
   .n{display:inline-block;background:var(--sea);color:#fff;border-radius:999px;width:1.6em;height:1.6em;text-align:center;line-height:1.6em;font-size:.8em;font-weight:700;margin-right:.5em}
+
+  /* Lightbox */
+  .gallery img,.band img{cursor:zoom-in}
+  #lightbox{position:fixed;inset:0;background:rgba(8,20,27,.92);display:none;align-items:center;justify-content:center;z-index:1000;cursor:zoom-out;padding:24px}
+  #lightbox.open{display:flex}
+  #lightbox img{max-width:96vw;max-height:92vh;object-fit:contain;border-radius:6px;box-shadow:0 10px 60px rgba(0,0,0,.6)}
+  #lightbox .cap{position:absolute;bottom:18px;left:0;right:0;text-align:center;color:#cfe8ef;font-size:.9rem;pointer-events:none}
+  #lightbox .close{position:absolute;top:14px;right:22px;color:#fff;font-size:2rem;line-height:1;opacity:.8}
+
+  .weather{background:var(--card);border:1px solid var(--line);border-radius:999px;padding:5px 14px;font-size:.85rem;color:var(--ink-soft)}
 </style>
 </head>
 <body id="top">
@@ -128,6 +138,25 @@
     <div class="fact"><div class="k">Strecke</div><div class="v">~2.500 km, Nord → Süd</div></div>
     <div class="fact"><div class="k">Unterkunft</div><div class="v">2-BR-Apartments, &lt; 100 € p.P./Nacht</div></div>
   </div>
+
+  <h3 style="margin-top:2em">Wetter im Juli/August (langjährige Mittelwerte)</h3>
+  <p>Trockenzeit im Norden, milder „Winter" im Süden — tagsüber überall T-Shirt-Wetter, nachts wird es landeinwärts und im Süden frisch. Regen fällt, wenn überhaupt, meist als kurzer Schauer.</p>
+  <div class="tbl-scroll"><table>
+    <tr><th>Ort</th><th>Tag / Nacht</th><th>Regen (Monat)</th><th>Wasser</th><th>Charakter</th></tr>
+    <tr><td>Cairns &amp; Port Douglas</td><td>26 / 17 °C</td><td>~25–30 mm · 3–4 Regentage</td><td>~23 °C</td><td>Trockenzeit-Bilderbuch: sonnig, klar, angenehm</td></tr>
+    <tr><td>Cape Tribulation</td><td>25 / 17 °C</td><td>~60 mm</td><td>~23 °C</td><td>Regenwald bleibt Regenwald — nachts Schauer möglich</td></tr>
+    <tr><td>Atherton Tablelands</td><td>22 / 9 °C</td><td>~20 mm</td><td>Seen ~20 °C</td><td>Hochland: sonnige Tage, kalte Morgen — Pulli!</td></tr>
+    <tr><td>Mission Beach</td><td>26 / 16 °C</td><td>~40 mm</td><td>~23 °C</td><td>warm, ruhige See</td></tr>
+    <tr><td>Magnetic Island / Townsville</td><td>25 / 14 °C</td><td>~13 mm · trockenster Stopp</td><td>~22 °C</td><td>fast garantiert sonnig</td></tr>
+    <tr><td>Airlie Beach / Whitsundays</td><td>23 / 15 °C</td><td>~35 mm</td><td>~22 °C</td><td>ideales Segelwetter, abends Jacke an Deck</td></tr>
+    <tr><td>Eungella (750 m)</td><td>18 / 7 °C</td><td>~30 mm</td><td>—</td><td>Nebelwald: kälteste Nacht der Reise</td></tr>
+    <tr><td>Carnarvon Gorge (nur B)</td><td>22 / 4 °C</td><td>~25 mm</td><td>—</td><td>Outback-Winter: sonnig-trocken, nachts bis ~0 °C</td></tr>
+    <tr><td>Agnes Water (nur A)</td><td>22 / 11 °C</td><td>~35 mm</td><td>~21 °C</td><td>mild, badbar</td></tr>
+    <tr><td>Rainbow Beach &amp; K'gari</td><td>21 / 11 °C</td><td>~70 mm · 6–8 Regentage</td><td>Meer ~21 °C · Seen ~18 °C</td><td>meist sonnig, aber Schauer einplanen</td></tr>
+    <tr><td>Noosa</td><td>21 / 10 °C</td><td>~65 mm</td><td>~21 °C</td><td>mild-sonnig, Wale ziehen vorbei</td></tr>
+    <tr><td>Brisbane</td><td>22 / 10 °C</td><td>~30 mm</td><td>—</td><td>trockener, sonniger Stadtwinter</td></tr>
+  </table></div>
+  <p style="font-size:.85rem;color:var(--ink-soft);margin-top:8px">Quelle: langjährige Juli-Monatsmittel des australischen Wetterdienstes (BOM); Anfang August im Norden ~1 °C wärmer. Sonnenuntergang durchgehend ~17:45–18:00 Uhr — Tagesprogramm früh starten.</p>
 </section>
 
 <figure class="band">
@@ -272,6 +301,8 @@
     <span><strong>Nächte:</strong> 3 (A &amp; B) · Sa 10. – Mo 12.07.</span>
     <span><strong>Lage:</strong> Far North Queensland, direkt am Korallenmeer</span>
     <span><strong>Anreise:</strong> Landung Sa früh, SUV-Übernahme am Flughafen</span>
+  
+    <span class="weather"><strong>Wetter:</strong> 🌤 26 / 17 °C · Wasser 23 °C · kaum Regen</span>
   </div>
   <div class="cols">
     <div>
@@ -302,6 +333,8 @@
   <div class="meta">
     <span><strong>Nächte:</strong> 3 (A &amp; B) · Di 13. – Do 15.07.</span>
     <span><strong>Fahrt:</strong> ~1 h ab Cairns, spektakuläre Küstenstraße</span>
+  
+    <span class="weather"><strong>Wetter:</strong> 🌤 26 / 16 °C · Wasser 23 °C · kaum Regen</span>
   </div>
   <div class="cols">
     <div>
@@ -333,6 +366,8 @@
   <div class="meta">
     <span><strong>Nächte:</strong> 2 (A &amp; B) · Fr 16. – Sa 17.07.</span>
     <span><strong>Fahrt:</strong> ~1,5 h inkl. Daintree-Kabelfähre</span>
+  
+    <span class="weather"><strong>Wetter:</strong> 🌦 25 / 17 °C · Wasser 23 °C · Schauer möglich</span>
   </div>
   <div class="cols">
     <div>
@@ -364,6 +399,8 @@
     <span><strong>Nächte:</strong> 3 (A) / 2 (B) · ab So 18.07.</span>
     <span><strong>Fahrt:</strong> ~2,5 h, über die Rex Range hinauf aufs Hochland</span>
     <span><strong>Basis:</strong> Yungaburra</span>
+  
+    <span class="weather"><strong>Wetter:</strong> ⛅ 22 / 9 °C · Seen ~20 °C · kalte Morgen</span>
   </div>
   <div class="cols">
     <div>
@@ -395,6 +432,8 @@
   <div class="meta">
     <span><strong>Nächte:</strong> 2 (A) / 1 (B) · ab Mi 21.07. (A) bzw. Di 20.07. (B)</span>
     <span><strong>Fahrt:</strong> ~2,5 h ab Yungaburra, durch Regenwald bergab</span>
+  
+    <span class="weather"><strong>Wetter:</strong> 🌤 26 / 16 °C · Wasser 23 °C</span>
   </div>
   <div class="cols">
     <div>
@@ -425,6 +464,8 @@
   <div class="meta">
     <span><strong>Nächte:</strong> 3 (A) / 2 (B) · ab Fr 23.07. (A) bzw. Mi 21.07. (B)</span>
     <span><strong>Anreise:</strong> ~2,5 h nach Townsville, Auto parken, 20-min-Passagierfähre</span>
+  
+    <span class="weather"><strong>Wetter:</strong> ☀️ 25 / 14 °C · Wasser 22 °C · trockenster Stopp</span>
   </div>
   <div class="cols">
     <div>
@@ -456,6 +497,8 @@
   <div class="meta">
     <span><strong>Nächte:</strong> 4 (A) / 3 (B) · ab Mo 26.07. (A) bzw. Fr 23.07. (B)</span>
     <span><strong>Fahrt:</strong> ~3,5 h ab Townsville</span>
+  
+    <span class="weather"><strong>Wetter:</strong> 🌤 23 / 15 °C · Wasser 22 °C · abends Jacke an Deck</span>
   </div>
   <div class="cols">
     <div>
@@ -486,6 +529,8 @@
   <div class="meta">
     <span><strong>Nächte:</strong> 1 (A &amp; B) · Fr 30.07. (A) bzw. Mo 26.07. (B)</span>
     <span><strong>Fahrt:</strong> ~3 h ab Airlie, zuletzt steile Serpentinen ins Nebelwald-Hochland</span>
+  
+    <span class="weather"><strong>Wetter:</strong> 🌫 18 / 7 °C · kälteste Nacht der Reise</span>
   </div>
   <div class="cols">
     <div>
@@ -516,6 +561,8 @@
     <span class="b-only">Nur Variante B</span>
     <span><strong>Nächte:</strong> 3 · Mi 28. – Fr 30.07.</span>
     <span><strong>Fahrt:</strong> 2 Etappen (Eungella → Emerald ~5 h, Emerald → Gorge ~3 h)</span>
+  
+    <span class="weather"><strong>Wetter:</strong> ☀️ 22 / 4 °C · nachts bis ~0 °C · sonnig-trocken</span>
   </div>
   <div class="cols">
     <div>
@@ -547,6 +594,8 @@
     <span class="a-only">Nur Variante A</span>
     <span><strong>Nächte:</strong> 1 · Sa 31.07.</span>
     <span><strong>Fahrt:</strong> ~6,5 h ab Eungella (längste Etappe der Variante A)</span>
+  
+    <span class="weather"><strong>Wetter:</strong> 🌤 22 / 11 °C · Wasser 21 °C</span>
   </div>
   <div class="cols">
     <div>
@@ -573,6 +622,8 @@
   <div class="meta">
     <span><strong>Nächte:</strong> 1 · So 01.08.</span>
     <span><strong>Fahrt:</strong> ~4 h (A, ab Agnes Water) / ~3 h (B, ab Bargara)</span>
+  
+    <span class="weather"><strong>Wetter:</strong> 🌦 21 / 11 °C · Schauer einplanen</span>
   </div>
   <div class="cols">
     <div>
@@ -602,6 +653,8 @@
   <div class="meta">
     <span><strong>Nächte:</strong> 2 · Mo 02. – Di 03.08.</span>
     <span><strong>Anreise:</strong> Barge ab Inskip Point (~10 min), dann nur noch Sand</span>
+  
+    <span class="weather"><strong>Wetter:</strong> 🌦 21 / 11 °C · Meer 21 °C · Seen ~18 °C</span>
   </div>
   <div class="cols">
     <div>
@@ -635,6 +688,8 @@
   <div class="meta">
     <span><strong>Nächte:</strong> 2 · Mi 04. – Do 05.08.</span>
     <span><strong>Fahrt:</strong> ~2 h ab Rainbow Beach</span>
+  
+    <span class="weather"><strong>Wetter:</strong> 🌤 21 / 10 °C · Wasser 21 °C · Wale vor der Küste</span>
   </div>
   <div class="cols">
     <div>
@@ -665,6 +720,8 @@
   <div class="meta">
     <span><strong>Nächte:</strong> 1 · Fr 06.08.</span>
     <span><strong>Fahrt:</strong> ~1,5 h ab Noosa · Sa 07.08. Heimflug</span>
+  
+    <span class="weather"><strong>Wetter:</strong> ☀️ 22 / 10 °C · sonniger Stadtwinter</span>
   </div>
   <div class="cols">
     <div>
@@ -730,5 +787,27 @@
   </div>
 </footer>
 
+<div id="lightbox" role="dialog" aria-label="Bildansicht">
+  <span class="close">×</span>
+  <img src="" alt="">
+  <div class="cap"></div>
+</div>
+<script>
+(function(){
+  var lb=document.getElementById('lightbox'),im=lb.querySelector('img'),cap=lb.querySelector('.cap');
+  document.querySelectorAll('.gallery img, .band img').forEach(function(el){
+    el.addEventListener('click',function(e){
+      e.preventDefault();e.stopPropagation();
+      im.src=el.src;im.alt=el.alt;
+      var fc=el.closest('figure')?el.closest('figure').querySelector('figcaption'):null;
+      cap.textContent=fc?fc.textContent.trim():(el.alt||'');
+      lb.classList.add('open');document.body.style.overflow='hidden';
+    });
+  });
+  function close(){lb.classList.remove('open');im.src='';document.body.style.overflow='';}
+  lb.addEventListener('click',close);
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
+})();
+</script>
 </body>
 </html>

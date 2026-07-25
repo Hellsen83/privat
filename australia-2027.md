@@ -26,6 +26,25 @@
 - **Nördliche Hälfte (Tropen + Outback):** Trockenzeit, 22–30 °C, klar, niedrige Luftfeuchtigkeit. Ideal für Wandern, Baden, Roadtrip. → **Zielregion.**
 - **Südliche Hälfte (Sydney, Melbourne, Tasmanien, Perth):** Winter, kühl/nass, Wassertemp ~18 °C. → für einen anderen Trip aufheben.
 
+### Klima-Referenz Juli/August (BOM-Monatsmittel)
+
+| Ort | Tag/Nacht | Regen/Monat | Wasser |
+|---|---|---|---|
+| Cairns / Port Douglas | 26/17 °C | ~25–30 mm | 23 °C |
+| Cape Tribulation | 25/17 °C | ~60 mm | 23 °C |
+| Atherton (750 m) | 22/9 °C | ~20 mm | Seen ~20 °C |
+| Mission Beach | 26/16 °C | ~40 mm | 23 °C |
+| Magnetic Island | 25/14 °C | ~13 mm (trockenster Stopp) | 22 °C |
+| Airlie/Whitsundays | 23/15 °C | ~35 mm | 22 °C |
+| Eungella (750 m) | 18/7 °C | ~30 mm | — |
+| Carnarvon Gorge | 22/4 °C (nachts bis 0) | ~25 mm | — |
+| Agnes Water | 22/11 °C | ~35 mm | 21 °C |
+| Rainbow Beach / K'gari | 21/11 °C | ~70 mm | Meer 21, Seen ~18 °C |
+| Noosa | 21/10 °C | ~65 mm | 21 °C |
+| Brisbane | 22/10 °C | ~30 mm | — |
+
+Sonnenuntergang durchgehend ~17:45–18:00 → Tagesprogramm früh starten.
+
 ---
 
 ## 3. Flüge
